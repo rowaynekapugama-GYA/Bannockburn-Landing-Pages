@@ -210,15 +210,35 @@ details p{color:var(--slate);font-size:.92rem;margin:.7rem 0 0}
 .loc-chips{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.2rem}
 .chip{background:#fff;border:1px solid var(--line);border-radius:999px;padding:.4rem .95rem;font-size:.82rem;font-weight:600;color:var(--mint-ink)}
 @media(max-width:860px){.loc-grid{grid-template-columns:1fr}}
+
+.team{padding:3.8rem 0}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem}
+.member{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow)}
+.member img{width:100%;height:280px;object-fit:cover;object-position:center 15%}
+.member .info{padding:1.05rem 1.2rem 1.25rem}
+.member h3{font-size:1.06rem;font-weight:700;font-family:var(--body)}
+.member .role{color:var(--mint-deep);font-weight:700;font-size:.8rem;margin:.15rem 0 .45rem}
+.member p{font-size:.85rem;color:var(--slate);margin:0;line-height:1.5}
+.member.lead{grid-column:span 3;display:grid;grid-template-columns:280px 1fr;align-items:center}
+.member.lead img{height:100%;min-height:280px}
+.member.lead .info{padding:1.6rem 1.8rem}
+.member.lead h3{font-size:1.35rem;font-family:var(--display)}
+@media(max-width:960px){.team-grid{grid-template-columns:1fr 1fr}.member.lead{grid-column:span 2}}
+@media(max-width:640px){.team-grid{grid-template-columns:1fr}.member.lead{grid-column:span 1;grid-template-columns:1fr}.member.lead img{height:320px}.member img{height:320px}}
+
+.btn-callico{display:none;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:var(--mint-soft);color:var(--mint-deep);border:1px solid var(--line)}
+@media(max-width:640px){.btn-callico{display:inline-flex}}
+@media(max-width:900px){.dock{display:flex}}
+@media(min-width:901px){footer{padding-bottom:2.8rem}}
 </style>
 </head>
 <body>
 
 <div class="infobar">
   <div class="wrap">
-    <div class="hours">🕐 <span>Mon/Wed 8:30–5 · Tue till 7:30pm · Thu till 6pm · Fri 8–4</span></div>
-    <div class="addr">📍 4/13 High St, Bannockburn VIC 3331</div>
-    <a href="tel:0352811899">📞 (03) 5281 1899</a>
+    <div class="hours"><span>Mon/Wed 8:30–5 · Tue till 7:30pm · Thu till 6pm · Fri 8–4</span></div>
+    <div class="addr">4/13 High St, Bannockburn VIC 3331</div>
+    <a href="tel:0352811899">(03) 5281 1899</a>
   </div>
 </div>
 
@@ -226,6 +246,7 @@ details p{color:var(--slate);font-size:.92rem;margin:.7rem 0 0}
   <div class="wrap">
     <a href="#top"><img src="img/bb-logo.png" alt="Bannockburn Dental" style="height:48px;width:auto"></a>
     <div class="head-cta">
+      <a class="btn-callico" href="tel:0352811899" aria-label="Call Bannockburn Dental"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9z"/></svg></a>
       <a class="head-phone" href="tel:0352811899"><b>(03) 5281 1899</b><span>New patients welcome</span></a>
       <a class="btn btn-coral" href="https://apac.dentalhub.online/soe/new/%20?pid=AUALL01" target="_blank" rel="noopener">Book online</a>
     </div>
@@ -270,6 +291,68 @@ details p{color:var(--slate);font-size:.92rem;margin:.7rem 0 0}
       <div class="pill reveal"><img src="img/ph-family.webp" alt="Family-owned practice"><b>Family-owned with heart</b><span>Proudly serving Bannockburn since 1992 with a personal touch.</span></div>
       <div class="pill reveal"><img src="img/ph-team.webp" alt="Experienced dental team"><b>Experienced team</b><span>Six dentists — a blend of youth and experience with a shared passion for quality dentistry.</span></div>
       <div class="pill reveal"><img src="img/ph-comfort.webp" alt="Comfort-focused treatment rooms"><b>Comfort focused</b><span>Happy gas, TVs on the ceilings, calming music, and bright, airy rooms.</span></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- TEAM -->
+<section class="team">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Meet your dental team</p>
+      <h2>Six dentists, one shared passion for quality care</h2>
+      <p>Our experienced and friendly dental team is here to support your oral health with compassion and skill.</p>
+    </div>
+    <div class="team-grid">
+      <div class="member lead reveal">
+        <img src="img/team-jason.webp" alt="Dr Jason Allsopp, owner and principal dentist at Bannockburn Dental">
+        <div class="info">
+          <h3>Dr Jason Allsopp</h3>
+          <p class="role">Owner &amp; Principal Dentist</p>
+          <p>Meticulous, gentle and tech-savvy, Dr Jason leads our family-run practice with a passion for comprehensive care, dental implants, digital smile design and family dentistry — continuing a tradition of quality care that Bannockburn has trusted since 1992.</p>
+        </div>
+      </div>
+      <div class="member reveal">
+        <img src="img/team-sapana.webp" alt="Dr Sapana Patel, dentist at Bannockburn Dental">
+        <div class="info">
+          <h3>Dr Sapana Patel</h3>
+          <p class="role">Dentist</p>
+          <p>Energetic and detail-oriented, Dr Sapana brings expertise in orthodontics, clear aligners and patient education.</p>
+        </div>
+      </div>
+      <div class="member reveal">
+        <img src="img/team-adelaide.webp" alt="Dr Adelaide Annand, dentist at Bannockburn Dental">
+        <div class="info">
+          <h3>Dr Adelaide Annand</h3>
+          <p class="role">Dentist</p>
+          <p>Kind, calming and great with children — Dr Adelaide ensures every patient feels heard and comfortable.</p>
+        </div>
+      </div>
+      <div class="member reveal">
+        <img src="img/team-frazer.webp" alt="Dr Frazer Gatens, dentist at Bannockburn Dental">
+        <div class="info">
+          <h3>Dr Frazer Gatens</h3>
+          <p class="role">Dentist</p>
+          <p>Brings rural experience and a love for all things oral surgery, endodontics and sleep medicine.</p>
+        </div>
+      </div>
+      <div class="member reveal">
+        <img src="img/team-meenakshi.webp" alt="Dr Meenakshi Rajcoomar, dentist at Bannockburn Dental">
+        <div class="info">
+          <h3>Dr Meenakshi Rajcoomar</h3>
+          <p class="role">Dentist</p>
+          <p>Joined our team after practising in Melbourne since graduating from the University of Melbourne in 2004.</p>
+        </div>
+      </div>
+      <div class="member reveal">
+        <img src="img/team-tom.webp" alt="Dr Tom Lu, dentist at Bannockburn Dental">
+        <div class="info">
+          <h3>Dr Tom (Hanzhi) Lu</h3>
+          <p class="role">Dentist</p>
+          <p>A University of Melbourne graduate passionate about delivering gentle, family-friendly dental care.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>

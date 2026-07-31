@@ -14,120 +14,147 @@
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#241D19; --bg2:#2E2620; --panel:#332A24;
-  --glass:rgba(255,248,240,.06); --glass-b:rgba(255,248,240,.14);
-  --cream:#F5EDE3; --sand:#CBB9A8; --muted:#A6968A;
-  --orange:#D97C33; --orange-deep:#C96A28; --orange-soft:rgba(217,124,51,.16);
-  --r:22px; --r-s:14px;
+  --paper:#FBF8F4; --cream:#F3EBE1; --card:rgba(255,255,255,.72); --card-b:rgba(93,80,73,.14);
+  --ink:#2E2620; --slate:#6E5F55; --line:#E7DCCE;
+  --tan:#D9A175; --tan-soft:#F6E7D8; --brown:#A45A22; --espresso:#4A3B32;
+  --orange:#C96A28; --orange-dark:#A85419;
+  --r:24px; --r-s:14px;
+  --shadow:0 12px 34px rgba(74,59,50,.10);
   --display:'Fraunces',serif; --body:'Instrument Sans',sans-serif;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;font-family:var(--body);background:var(--bg);color:var(--cream);line-height:1.6;-webkit-font-smoothing:antialiased}
+body{margin:0;font-family:var(--body);color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;
+  background:
+    radial-gradient(900px 500px at 85% -5%, rgba(217,161,117,.28), transparent 60%),
+    radial-gradient(700px 480px at -10% 40%, rgba(201,106,40,.14), transparent 60%),
+    linear-gradient(180deg,#FBF8F4 0%,#F3EBE1 100%);
+  background-attachment:fixed}
 img{max-width:100%;display:block}
 h1,h2,h3{font-family:var(--display);line-height:1.1;margin:0;font-weight:600}
-a{color:var(--orange)}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-family:var(--body);font-weight:700;font-size:1rem;border-radius:999px;padding:.9rem 1.7rem;text-decoration:none;border:none;cursor:pointer;transition:transform .15s ease,background .15s ease}
+a{color:var(--brown)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;font-family:var(--body);font-weight:700;font-size:1rem;border-radius:999px;padding:.9rem 1.7rem;text-decoration:none;border:none;cursor:pointer;transition:transform .15s,background .15s,box-shadow .15s}
 .btn:active{transform:scale(.98)}
-.btn-orange{background:var(--orange);color:#241D19}
-.btn-orange:hover{background:var(--orange-deep);color:#fff}
-.btn-glass{background:var(--glass);color:var(--cream);border:1px solid var(--glass-b)}
-.btn-glass:hover{background:rgba(255,248,240,.12)}
-.eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-weight:700;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--orange)}
+.btn-orange{background:var(--orange);color:#fff;box-shadow:0 8px 22px rgba(201,106,40,.32)}
+.btn-orange:hover{background:var(--orange-dark)}
+.btn-glass{background:var(--card);color:var(--espresso);border:1px solid var(--card-b);backdrop-filter:blur(10px)}
+.btn-glass:hover{background:#fff}
+.eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-weight:700;font-size:.78rem;letter-spacing:.16em;text-transform:uppercase;color:var(--brown)}
 .eyebrow::before{content:"";width:26px;height:2px;background:var(--orange)}
+.btn-callico{display:none;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:var(--tan-soft);color:var(--brown);border:1px solid var(--line)}
+@media(max-width:640px){.btn-callico{display:inline-flex}}
 
 /* ---------- slideshow scaffold ---------- */
 .deck{height:100dvh;overflow-y:auto;scroll-snap-type:y mandatory;scroll-behavior:smooth}
 .slide{min-height:100dvh;scroll-snap-align:start;display:flex;align-items:center;position:relative;padding:5.5rem 0 4.5rem}
 .wrap{max-width:1100px;margin:0 auto;padding:0 22px;width:100%}
-.slide:nth-child(even){background:var(--bg2)}
 
 /* progress dots */
 .dots{position:fixed;right:18px;top:50%;transform:translateY(-50%);z-index:70;display:flex;flex-direction:column;gap:10px}
-.dots a{width:9px;height:9px;border-radius:50%;background:rgba(245,237,227,.25);transition:all .2s;display:block}
+.dots a{width:9px;height:9px;border-radius:50%;background:rgba(74,59,50,.22);transition:all .2s;display:block}
 .dots a.on{background:var(--orange);height:24px;border-radius:6px}
 @media(max-width:760px){.dots{right:8px}.dots a{width:7px;height:7px}}
 
 /* header */
-header.site{position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(36,29,25,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--glass-b)}
+header.site{position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(251,248,244,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
 header.site .in{max-width:1100px;margin:0 auto;padding:.65rem 22px;display:flex;align-items:center;justify-content:space-between;gap:1rem}
-.head-phone{display:flex;flex-direction:column;text-align:right;text-decoration:none;color:var(--cream);line-height:1.2}
+.head-phone{display:flex;flex-direction:column;text-align:right;text-decoration:none;color:var(--ink);line-height:1.2}
 .head-phone b{font-size:1rem}
-.head-phone span{font-size:.7rem;color:var(--muted)}
+.head-phone span{font-size:.7rem;color:var(--slate)}
 .head-cta{display:flex;align-items:center;gap:.7rem}
 @media(max-width:640px){.head-phone{display:none}.head-cta .btn{padding:.65rem 1.1rem;font-size:.88rem}}
 
 /* glass card */
-.card{background:var(--glass);border:1px solid var(--glass-b);border-radius:var(--r);padding:1.5rem;backdrop-filter:blur(8px)}
+.card{background:var(--card);border:1px solid var(--card-b);border-radius:var(--r);padding:1.5rem;backdrop-filter:blur(12px);box-shadow:var(--shadow)}
 
 /* hero */
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:3rem;align-items:center}
-.hero-grid h1{font-size:clamp(2.2rem,5vw,3.6rem)}
+.hero-grid h1{font-size:clamp(2.2rem,5vw,3.5rem)}
 .hero-grid h1 em{font-style:italic;color:var(--orange)}
-.sub{color:var(--sand);max-width:520px;margin-top:1.1rem}
+.sub{color:var(--slate);max-width:520px;margin-top:1.1rem}
 .chip-row{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.3rem}
-.chip{background:var(--glass);border:1px solid var(--glass-b);border-radius:999px;padding:.42rem 1rem;font-size:.8rem;font-weight:600;color:var(--sand)}
+.chip{background:var(--card);border:1px solid var(--card-b);border-radius:999px;padding:.42rem 1rem;font-size:.8rem;font-weight:600;color:var(--espresso);backdrop-filter:blur(8px)}
 .cta-row{display:flex;gap:.8rem;margin-top:1.6rem;flex-wrap:wrap}
-.hero-photo img{width:100%;height:520px;object-fit:cover;border-radius:var(--r);border:1px solid var(--glass-b)}
-.est{display:inline-flex;gap:.5rem;align-items:center;margin-top:1.2rem;font-size:.85rem;color:var(--muted)}
-.est b{color:var(--cream)}
-@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:1.6rem}.hero-photo img{height:300px}}
+.hero-photo img{width:100%;height:520px;object-fit:cover;border-radius:240px 240px var(--r) var(--r);box-shadow:var(--shadow)}
+.est{display:inline-flex;gap:.5rem;align-items:center;margin-top:1.2rem;font-size:.85rem;color:var(--slate)}
+.est b{color:var(--ink)}
+@media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:1.6rem}.hero-photo img{height:300px;border-radius:160px 160px var(--r) var(--r)}}
 
-/* generic split */
+/* split + lists */
 .split{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
-.split img{width:100%;height:440px;object-fit:cover;border-radius:var(--r);border:1px solid var(--glass-b)}
+.split img{width:100%;height:440px;object-fit:cover;border-radius:var(--r);box-shadow:var(--shadow)}
 @media(max-width:900px){.split{grid-template-columns:1fr;gap:1.6rem}.split img{height:260px}}
 .sec-head{max-width:680px;margin-bottom:1.8rem}
 .sec-head h2{font-size:clamp(1.8rem,3.8vw,2.6rem);margin-top:.5rem}
-.sec-head p{color:var(--sand)}
+.sec-head p{color:var(--slate)}
 .list{list-style:none;margin:1.2rem 0 0;padding:0;display:grid;gap:.75rem}
-.list li{display:flex;gap:.7rem;align-items:flex-start;font-size:.96rem;color:var(--sand)}
-.list li b{color:var(--cream)}
-.tick{flex:0 0 auto;width:22px;height:22px;border-radius:50%;background:var(--orange-soft);border:1px solid var(--orange);display:grid;place-items:center;margin-top:2px}
+.list li{display:flex;gap:.7rem;align-items:flex-start;font-size:.96rem;color:var(--slate)}
+.list li b{color:var(--ink)}
+.tick{flex:0 0 auto;width:22px;height:22px;border-radius:50%;background:var(--tan-soft);border:1px solid var(--orange);display:grid;place-items:center;margin-top:2px}
 .tick svg{width:11px;height:11px;stroke:var(--orange);stroke-width:3;fill:none}
 
 /* journey */
 .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem;counter-reset:s}
-.step{background:var(--glass);border:1px solid var(--glass-b);border-radius:var(--r-s);padding:1.3rem 1.1rem;position:relative}
+.step{background:var(--card);border:1px solid var(--card-b);border-radius:var(--r-s);padding:1.3rem 1.1rem;backdrop-filter:blur(10px)}
 .step::before{counter-increment:s;content:counter(s,decimal-leading-zero);font-family:var(--display);color:var(--orange);font-size:1.3rem;font-weight:700}
 .step h3{font-size:1rem;margin-top:.5rem;font-family:var(--body);font-weight:700}
-.step p{font-size:.82rem;color:var(--sand);margin:.45rem 0 0}
+.step p{font-size:.82rem;color:var(--slate);margin:.45rem 0 0}
 @media(max-width:1000px){.steps{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.steps{grid-template-columns:1fr}}
 
 /* restorations */
 .resto{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
 .resto .card h3{font-size:1.15rem}
-.resto .card p{color:var(--sand);font-size:.9rem;margin:.5rem 0 0}
+.resto .card p{color:var(--slate);font-size:.9rem;margin:.5rem 0 0}
 @media(max-width:860px){.resto{grid-template-columns:1fr}}
 
+/* team */
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.member{background:var(--card);border:1px solid var(--card-b);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);backdrop-filter:blur(10px)}
+.member img{width:100%;height:230px;object-fit:cover;object-position:center 15%}
+.member .info{padding:.95rem 1.1rem 1.15rem}
+.member h3{font-size:1rem;font-weight:700;font-family:var(--body)}
+.member .role{color:var(--brown);font-weight:700;font-size:.76rem;margin:.12rem 0 .35rem}
+.member p{font-size:.82rem;color:var(--slate);margin:0;line-height:1.45}
+@media(max-width:960px){.team-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.team-grid{grid-template-columns:1fr 1fr}.member img{height:170px}.member p{display:none}}
+
 /* faq */
-details{background:var(--glass);border:1px solid var(--glass-b);border-radius:var(--r-s);padding:1rem 1.2rem;margin-bottom:.7rem}
-summary{cursor:pointer;font-weight:700;color:var(--cream)}
-details p{color:var(--sand);font-size:.92rem;margin:.7rem 0 0}
+details{background:var(--card);border:1px solid var(--card-b);border-radius:var(--r-s);padding:1rem 1.2rem;margin-bottom:.7rem;backdrop-filter:blur(8px)}
+summary{cursor:pointer;font-weight:700;color:var(--ink)}
+details p{color:var(--slate);font-size:.92rem;margin:.7rem 0 0}
 
 /* form */
 .book-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
 form .row{display:grid;grid-template-columns:1fr 1fr;gap:.8rem}
-label{font-size:.8rem;font-weight:600;color:var(--sand);display:block;margin:.8rem 0 .3rem}
-input,select{width:100%;padding:.8rem .9rem;border-radius:12px;border:1px solid var(--glass-b);background:rgba(255,248,240,.05);color:var(--cream);font-family:var(--body);font-size:.95rem}
-input:focus,select:focus{outline:2px solid var(--orange)}
-select option{color:#241D19}
+label{font-size:.8rem;font-weight:600;color:var(--slate);display:block;margin:.8rem 0 .3rem}
+input{width:100%;padding:.8rem .9rem;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.85);color:var(--ink);font-family:var(--body);font-size:.95rem}
+input:focus{outline:2px solid var(--orange)}
 .hp{position:absolute;left:-9999px;opacity:0}
-.form-note{font-size:.76rem;color:var(--muted);margin-top:.8rem}
+/* on-page selection pills (replaces dropdown) */
+.seg{display:grid;grid-template-columns:1fr 1fr;gap:.6rem;margin-top:.3rem}
+.seg .opt{position:relative}
+.seg input[type=radio]{position:absolute;opacity:0;inset:0;width:100%;height:100%;cursor:pointer;margin:0}
+.seg .face{display:flex;align-items:center;gap:.55rem;padding:.75rem .9rem;border-radius:14px;border:1px solid var(--card-b);background:var(--card);backdrop-filter:blur(8px);font-size:.85rem;font-weight:600;color:var(--espresso);transition:all .15s;min-height:52px}
+.seg .face svg{flex:0 0 auto;width:18px;height:18px;stroke:var(--brown);fill:none;stroke-width:2}
+.seg input[type=radio]:checked + .face{background:var(--orange);border-color:var(--orange);color:#fff;box-shadow:0 8px 20px rgba(201,106,40,.30)}
+.seg input[type=radio]:checked + .face svg{stroke:#fff}
+.seg input[type=radio]:focus-visible + .face{outline:2px solid var(--espresso)}
+@media(max-width:480px){.seg{grid-template-columns:1fr}}
+.form-note{font-size:.76rem;color:var(--slate);margin-top:.8rem}
 .form-status{margin-top:.8rem;font-size:.9rem;font-weight:600;display:none}
 @media(max-width:900px){.book-grid{grid-template-columns:1fr}}
 
 /* footer + dock */
-footer{background:#1C1613;color:var(--muted);padding:2.2rem 0 6.5rem;font-size:.78rem}
+footer{background:var(--espresso);color:#D9CCC1;padding:2.2rem 0 6.5rem;font-size:.78rem}
 footer .wrap{display:grid;gap:1.2rem}
 footer img{height:40px;width:auto}
-footer a{color:var(--sand)}
+footer a{color:#F0E5DA}
 footer p{margin:.3rem 0;line-height:1.55}
-@media(min-width:761px){footer{padding-bottom:2.2rem}}
-.dock{position:fixed;left:0;right:0;bottom:0;z-index:80;display:none;gap:.6rem;padding:.7rem .9rem calc(.7rem + env(safe-area-inset-bottom));background:rgba(36,29,25,.94);backdrop-filter:blur(10px);border-top:1px solid var(--glass-b)}
+.dock{position:fixed;left:0;right:0;bottom:0;z-index:80;display:none;gap:.6rem;padding:.7rem .9rem calc(.7rem + env(safe-area-inset-bottom));background:rgba(251,248,244,.94);backdrop-filter:blur(10px);border-top:1px solid var(--line)}
 .dock .btn{flex:1;padding:.85rem .5rem;font-size:.95rem}
-@media(max-width:760px){.dock{display:flex}}
+@media(max-width:900px){.dock{display:flex}}
+@media(min-width:901px){footer{padding-bottom:2.2rem}}
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s}
 .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.deck{scroll-behavior:auto}}
@@ -137,8 +164,9 @@ footer p{margin:.3rem 0;line-height:1.55}
 
 <header class="site">
   <div class="in">
-    <a href="#s1"><img src="img/bb-logo-light.png" alt="Bannockburn Dental" style="height:42px;width:auto"></a>
+    <a href="#s1"><img src="img/bb-logo.png" alt="Bannockburn Dental" style="height:46px;width:auto"></a>
     <div class="head-cta">
+      <a class="btn-callico" href="tel:0352811899" aria-label="Call Bannockburn Dental"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9z"/></svg></a>
       <a class="head-phone" href="tel:0352811899"><b>(03) 5281 1899</b><span>Bannockburn · on-site parking</span></a>
       <a class="btn btn-orange" href="https://apac.dentalhub.online/soe/new/%20?pid=AUALL01" target="_blank" rel="noopener">Book online</a>
     </div>
@@ -146,8 +174,8 @@ footer p{margin:.3rem 0;line-height:1.55}
 </header>
 
 <nav class="dots" aria-label="Slides">
-  <a href="#s1" data-dot></a><a href="#s2" data-dot></a><a href="#s3" data-dot></a>
-  <a href="#s4" data-dot></a><a href="#s5" data-dot></a><a href="#s6" data-dot></a><a href="#s7" data-dot></a>
+  <a href="#s1" data-dot></a><a href="#s2" data-dot></a><a href="#s3" data-dot></a><a href="#s4" data-dot></a>
+  <a href="#s5" data-dot></a><a href="#s6" data-dot></a><a href="#s7" data-dot></a>
 </nav>
 
 <main class="deck" id="deck">
@@ -168,7 +196,7 @@ footer p{margin:.3rem 0;line-height:1.55}
           <a class="btn btn-orange" href="#s7">Request a consultation</a>
           <a class="btn btn-glass" href="tel:0352811899">Call (03) 5281 1899</a>
         </div>
-        <div class="est reveal">⭐ <b>Gentle &amp; caring</b> — happy gas, ceiling TVs and a calming environment for nervous patients</div>
+        <div class="est reveal"><b>Gentle &amp; caring</b> — happy gas, ceiling TVs and a calming environment for nervous patients</div>
       </div>
       <div class="hero-photo reveal"><img src="img/ph-hero.webp" alt="Dental implant treatment at Bannockburn Dental"></div>
     </div>
@@ -247,22 +275,39 @@ footer p{margin:.3rem 0;line-height:1.55}
     </div>
   </section>
 
-  <!-- SLIDE 6 · WHY US + FAQ -->
+  <!-- SLIDE 6 · TEAM + FAQ -->
   <section class="slide" id="s6">
-    <div class="wrap split">
-      <div>
-        <div class="sec-head">
-          <p class="eyebrow reveal">Why Bannockburn Dental</p>
-          <h2 class="reveal">Big-city technology, country care</h2>
-          <p class="reveal">Led by Dr Jason Allsopp — meticulous, gentle and tech-savvy, with a passion for comprehensive care, implants and digital smile design — our family-run practice has served Bannockburn and surrounds for over 30 years, with transparent pricing and fees we aim to keep below average.</p>
-        </div>
-        <img class="reveal" src="img/ph-jason.webp" alt="Dr Jason Allsopp, implant dentist at Bannockburn Dental" style="height:300px">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow reveal">Meet your dental team</p>
+        <h2 class="reveal">Big-city technology, country care</h2>
+        <p class="reveal">Dr Jason leads our implant treatments with guided surgery and digital smile design — supported by our whole family-run team, caring for Bannockburn and surrounds for over 30 years.</p>
       </div>
-      <div>
-        <details class="reveal" open><summary>How long do dental implants last?</summary><p>With proper care, implants can last 15 years or more — often a lifetime. Brush and floss like natural teeth, and keep up routine check-ups.</p></details>
-        <details class="reveal"><summary>Am I too old for implants?</summary><p>Not at all. Many people get implants in their 60s or 70s. If your general and oral health is good, age isn't a problem.</p></details>
-        <details class="reveal"><summary>How are implants better than dentures?</summary><p>Implants look, feel and function more like natural teeth. They don't slip or need removal, and they help prevent bone loss in the jaw.</p></details>
-        <details class="reveal"><summary>Will my health fund cover implants?</summary><p>Some private health funds offer partial cover. We'll help you check your policy and provide quotes for pre-approval.</p></details>
+      <div class="team-grid">
+        <div class="member reveal">
+          <img src="img/team-jason.webp" alt="Dr Jason Allsopp, owner and principal dentist at Bannockburn Dental">
+          <div class="info"><h3>Dr Jason Allsopp</h3><p class="role">Owner &amp; Principal — Implants</p><p>Meticulous, gentle and tech-savvy; passionate about implants and digital smile design.</p></div>
+        </div>
+        <div class="member reveal">
+          <img src="img/team-sapana.webp" alt="Dr Sapana Patel, dentist at Bannockburn Dental">
+          <div class="info"><h3>Dr Sapana Patel</h3><p class="role">Dentist</p><p>Energetic and detail-oriented; orthodontics, clear aligners and patient education.</p></div>
+        </div>
+        <div class="member reveal">
+          <img src="img/team-frazer.webp" alt="Dr Frazer Gatens, dentist at Bannockburn Dental">
+          <div class="info"><h3>Dr Frazer Gatens</h3><p class="role">Dentist</p><p>Rural experience with a love for oral surgery, endodontics and sleep medicine.</p></div>
+        </div>
+        <div class="member reveal">
+          <img src="img/team-adelaide.webp" alt="Dr Adelaide Annand, dentist at Bannockburn Dental">
+          <div class="info"><h3>Dr Adelaide Annand</h3><p class="role">Dentist</p><p>Kind, calming and great with children — every patient feels heard.</p></div>
+        </div>
+        <div class="member reveal">
+          <img src="img/team-meenakshi.webp" alt="Dr Meenakshi Rajcoomar, dentist at Bannockburn Dental">
+          <div class="info"><h3>Dr Meenakshi Rajcoomar</h3><p class="role">Dentist</p><p>Practising since 2004, University of Melbourne graduate.</p></div>
+        </div>
+        <div class="member reveal">
+          <img src="img/team-tom.webp" alt="Dr Tom Lu, dentist at Bannockburn Dental">
+          <div class="info"><h3>Dr Tom (Hanzhi) Lu</h3><p class="role">Dentist</p><p>Gentle, family-friendly care; University of Melbourne graduate.</p></div>
+        </div>
       </div>
     </div>
   </section>
@@ -279,10 +324,9 @@ footer p{margin:.3rem 0;line-height:1.55}
           <li class="reveal"><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg></span><span><b>Open late Tuesdays (till 7:30pm)</b> and Thursdays (till 6pm) — Mon/Wed 8:30–5, Fri 8–4.</span></li>
           <li class="reveal"><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg></span><span><b>Serving the whole region</b> — Bannockburn, Lethbridge, Teesdale, Meredith, Inverleigh, Batesford and Geelong.</span></li>
         </ul>
-        <div class="cta-row reveal">
-          <a class="btn btn-orange" href="https://apac.dentalhub.online/soe/new/%20?pid=AUALL01" target="_blank" rel="noopener">Book online now</a>
-          <a class="btn btn-glass" href="tel:0352811899">Call (03) 5281 1899</a>
-        </div>
+        <details class="reveal" style="margin-top:1.2rem"><summary>How long do dental implants last?</summary><p>With proper care, implants can last 15 years or more — often a lifetime. Brush and floss like natural teeth, and keep up routine check-ups.</p></details>
+        <details class="reveal"><summary>Am I too old for implants?</summary><p>Not at all. Many people get implants in their 60s or 70s. If your general and oral health is good, age isn't a problem.</p></details>
+        <details class="reveal"><summary>Will my health fund cover implants?</summary><p>Some private health funds offer partial cover. We'll help you check your policy and provide quotes for pre-approval.</p></details>
       </div>
       <div class="card reveal">
         <h3 style="font-family:var(--body);font-weight:700;font-size:1.1rem">Request an implant consultation</h3>
@@ -293,13 +337,25 @@ footer p{margin:.3rem 0;line-height:1.55}
           </div>
           <label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required>
           <label for="phoneNumber">Phone</label><input id="phoneNumber" name="phoneNumber" type="tel" autocomplete="tel" required>
-          <label for="situation">What best describes you?</label>
-          <select id="situation" name="situation">
-            <option>Missing one tooth</option>
-            <option>Missing several teeth</option>
-            <option>Considering a full arch / denture alternative</option>
-            <option>Not sure — I'd like advice</option>
-          </select>
+          <label>What best describes you?</label>
+          <div class="seg" role="radiogroup" aria-label="What best describes you?">
+            <span class="opt">
+              <input type="radio" name="situation" value="Missing one tooth" checked>
+              <span class="face"><svg viewBox="0 0 24 24"><path d="M12 3c-3 0-5 2-5 5 0 4 2 5 2 9 0 2 1 4 3 4s3-2 3-4c0-4 2-5 2-9 0-3-2-5-5-5z"/></svg>Missing one tooth</span>
+            </span>
+            <span class="opt">
+              <input type="radio" name="situation" value="Missing several teeth">
+              <span class="face"><svg viewBox="0 0 24 24"><path d="M4 14c0-3 1.5-5 4-5s4 2 4 5M12 14c0-3 1.5-5 4-5s4 2 4 5"/></svg>Missing several teeth</span>
+            </span>
+            <span class="opt">
+              <input type="radio" name="situation" value="Considering a full arch / denture alternative">
+              <span class="face"><svg viewBox="0 0 24 24"><path d="M3 12c0-5 4-8 9-8s9 3 9 8-4 8-9 8-9-3-9-8z"/><path d="M7 12h10"/></svg>Full arch / denture alternative</span>
+            </span>
+            <span class="opt">
+              <input type="radio" name="situation" value="Not sure - I'd like advice">
+              <span class="face"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5A2.5 2.5 0 1 1 12 12.5v1.5M12 17h.01"/></svg>Not sure — I'd like advice</span>
+            </span>
+          </div>
           <input class="hp" type="text" name="company" tabindex="-1" autocomplete="off">
           <button class="btn btn-orange" type="submit" style="width:100%;margin-top:1.2rem">Send request</button>
           <p class="form-status" id="formStatus"></p>
@@ -327,29 +383,26 @@ footer p{margin:.3rem 0;line-height:1.55}
 </div>
 
 <script>
-// reveal animations
 const io = new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-// active dot tracking
 const slides=[...document.querySelectorAll('.slide')], dots=[...document.querySelectorAll('[data-dot]')];
 const so=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){const i=slides.indexOf(e.target);dots.forEach((d,j)=>d.classList.toggle('on',j===i))}})},{root:document.getElementById('deck'),threshold:.55});
 slides.forEach(s=>so.observe(s));
 
-// lead form -> /api/lead (same-origin serverless relay)
 const FORM_ENDPOINT="/api/lead";
 document.getElementById('leadForm').addEventListener('submit',async(ev)=>{
   ev.preventDefault();
   const f=ev.target, st=document.getElementById('formStatus');
   const data=Object.fromEntries(new FormData(f).entries());
-  if(!data.firstName||!data.email||!data.phoneNumber){st.style.display='block';st.style.color='#E8A87C';st.textContent='Please fill in your name, email and phone.';return}
+  if(!data.firstName||!data.email||!data.phoneNumber){st.style.display='block';st.style.color='#A85419';st.textContent='Please fill in your name, email and phone.';return}
   const btn=f.querySelector('button');btn.disabled=true;btn.textContent='Sending…';
   try{
     const r=await fetch(FORM_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
     const out=await r.json().catch(()=>({}));
-    if(r.ok&&out.ok){st.style.display='block';st.style.color='#9BD8A8';st.textContent='Thank you! Our team will be in touch shortly.';f.reset()}
+    if(r.ok&&out.ok){st.style.display='block';st.style.color='#2E7C40';st.textContent='Thank you! Our team will be in touch shortly.';f.reset()}
     else{throw new Error(out.error||'send failed')}
-  }catch(e){st.style.display='block';st.style.color='#E8A87C';st.textContent='Something went wrong — please call us on (03) 5281 1899.'}
+  }catch(e){st.style.display='block';st.style.color='#A85419';st.textContent='Something went wrong — please call us on (03) 5281 1899.'}
   btn.disabled=false;btn.textContent='Send request';
 });
 </script>

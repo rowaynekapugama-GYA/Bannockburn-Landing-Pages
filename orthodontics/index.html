@@ -210,15 +210,41 @@ footer .legal p{margin:.35rem 0;line-height:1.55;color:#A9D5CC}
 .stat{background:var(--card);border:1px solid var(--line);border-radius:var(--r-s);padding:.9rem 1rem;text-align:center}
 .stat b{font-family:var(--display);font-weight:700;font-size:1.5rem;color:var(--mint-deep);display:block}
 .stat span{font-size:.76rem;color:var(--slate)}
+
+.btn-callico{display:none;align-items:center;justify-content:center;width:44px;height:44px;border-radius:50%;background:var(--mint-soft);color:var(--mint-deep);border:1px solid var(--line)}
+@media(max-width:640px){.btn-callico{display:inline-flex}}
+@media(max-width:900px){.dock{display:flex}}
+@media(min-width:901px){footer{padding-bottom:2.8rem}}
+
+.team{padding:3.8rem 0}
+.team-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem}
+.member{background:var(--card);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow)}
+.member img{width:100%;height:280px;object-fit:cover;object-position:center 15%}
+.member .info{padding:1.05rem 1.2rem 1.25rem}
+.member h3{font-size:1.06rem;font-weight:700;font-family:var(--body)}
+.member .role{color:var(--mint-deep);font-weight:700;font-size:.8rem;margin:.15rem 0 .45rem}
+.member p{font-size:.85rem;color:var(--slate);margin:0;line-height:1.5}
+@media(max-width:960px){.team-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.team-grid{grid-template-columns:1fr}.member img{height:320px}}
+.gal-band{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;margin-top:2rem}
+.gal-band img{width:100%;height:230px;object-fit:cover;border-radius:var(--r-s);border:1px solid var(--line)}
+@media(max-width:860px){.gal-band{grid-template-columns:1fr}.gal-band img{height:200px}}
+.kids{padding:3.8rem 0;background:var(--cream)}
+.kids-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.4rem;align-items:center}
+.kids ul{list-style:none;margin:1.1rem 0 0;padding:0;display:grid;gap:.7rem}
+.kids li{display:flex;gap:.6rem;align-items:flex-start;font-size:.95rem;color:var(--slate)}
+.kids li b{color:var(--ink)}
+.kids-photo img{width:100%;height:380px;object-fit:cover;border-radius:200px 200px var(--r) var(--r);box-shadow:var(--shadow)}
+@media(max-width:860px){.kids-grid{grid-template-columns:1fr}.kids-photo img{height:260px}}
 </style>
 </head>
 <body>
 
 <div class="infobar">
   <div class="wrap">
-    <div class="hours">🕐 <span>Mon/Wed 8:30–5 · Tue till 7:30pm · Thu till 6pm · Fri 8–4</span></div>
-    <div class="addr">📍 4/13 High St, Bannockburn VIC 3331</div>
-    <a href="tel:0352811899">📞 (03) 5281 1899</a>
+    <div class="hours"><span>Mon/Wed 8:30–5 · Tue till 7:30pm · Thu till 6pm · Fri 8–4</span></div>
+    <div class="addr">4/13 High St, Bannockburn VIC 3331</div>
+    <a href="tel:0352811899">(03) 5281 1899</a>
   </div>
 </div>
 
@@ -226,6 +252,7 @@ footer .legal p{margin:.35rem 0;line-height:1.55;color:#A9D5CC}
   <div class="wrap">
     <a href="#top"><img src="img/bb-logo.png" alt="Bannockburn Dental" style="height:48px;width:auto"></a>
     <div class="head-cta">
+      <a class="btn-callico" href="tel:0352811899" aria-label="Call Bannockburn Dental"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.13.96.36 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.45c.9.34 1.84.57 2.8.7A2 2 0 0 1 22 16.9z"/></svg></a>
       <a class="head-phone" href="tel:0352811899"><b>(03) 5281 1899</b><span>Friendly local team</span></a>
       <a class="btn btn-coral" href="https://apac.dentalhub.online/soe/new/%20?pid=AUALL01" target="_blank" rel="noopener">Book online</a>
     </div>
@@ -244,7 +271,7 @@ footer .legal p{margin:.35rem 0;line-height:1.55;color:#A9D5CC}
         <div class="stat"><b>1–2 wks</b><span>per aligner set</span></div>
         <div class="stat"><b>20–22</b><span>hours wear per day</span></div>
       </div>
-      <span class="free-chip reveal">🖥️ Digital smile preview — see your expected result before you start</span>
+      <span class="free-chip reveal">Digital smile preview — see your expected result before you start</span>
       <div class="hero-cta reveal">
         <a class="btn btn-coral" href="https://apac.dentalhub.online/soe/new/%20?pid=AUALL01" target="_blank" rel="noopener">Book a consultation</a>
         <a class="btn btn-ghost" href="tel:0352811899">Call (03) 5281 1899</a>
@@ -273,6 +300,12 @@ footer .legal p{margin:.35rem 0;line-height:1.55;color:#A9D5CC}
       <div class="fix reveal"><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg></span><span class="txt"><b>Easier hygiene</b><span>Straight teeth — and removable trays — are easier to keep clean.</span></span></div>
       <div class="fix reveal"><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg></span><span class="txt"><b>Fewer visits</b><span>Fewer appointments than traditional fixed braces.</span></span></div>
     </div>
+
+    <div class="gal-band">
+      <img class="reveal" src="img/ph-aligner-2.webp" alt="Clear aligners at Bannockburn Dental">
+      <img class="reveal" src="img/ph-aligner-3.webp" alt="Clear aligner treatment in progress">
+      <img class="reveal" src="img/ph-aligner-4.webp" alt="Custom clear aligner trays">
+    </div>
   </div>
 </section>
 
@@ -293,14 +326,60 @@ footer .legal p{margin:.35rem 0;line-height:1.55;color:#A9D5CC}
   </div>
 </section>
 
+
+<!-- KIDS ORTHODONTICS -->
+<section class="kids">
+  <div class="wrap kids-grid">
+    <div>
+      <div class="sec-head reveal" style="margin-bottom:1rem">
+        <p class="eyebrow">Kids &amp; teens</p>
+        <h2>Orthodontics for growing smiles</h2>
+        <p>As a family practice, we monitor your child's tooth and jaw development at their regular check-ups — so if alignment issues are developing, we catch them early and plan the right treatment at the right time.</p>
+      </div>
+      <ul>
+        <li class="reveal"><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg></span><span><b>Early orthodontic assessments</b> — we keep an eye on crowding, spacing and bite development from a young age, and advise on the ideal timing for treatment.</span></li>
+        <li class="reveal"><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg></span><span><b>Discreet options for teens</b> — clear aligners are nearly invisible and removable, a popular choice for self-conscious teenagers.</span></li>
+        <li class="reveal"><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg></span><span><b>A team kids actually like</b> — we love seeing children and children love seeing us; Dr Adelaide is especially great at putting young patients at ease.</span></li>
+        <li class="reveal"><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg></span><span><b>Straighter teeth, healthier habits</b> — well-aligned teeth are easier to clean, setting kids up for a lifetime of good oral health.</span></li>
+      </ul>
+    </div>
+    <div class="kids-photo reveal"><img src="img/ph-aligner-3.webp" alt="Teen clear aligner treatment at Bannockburn Dental"></div>
+  </div>
+</section>
+
 <!-- DR SAPANA -->
-<section class="karim">
+<section class="team">
   <div class="wrap">
-    <img src="img/ph-sapana.webp" alt="Dr Sapana Patel, orthodontics and clear aligners at Bannockburn Dental" class="reveal">
-    <div class="reveal">
-      <p class="eyebrow" style="color:var(--mint)">Your aligner dentist</p>
-      <h2>Dr Sapana Patel</h2>
-      <p>Energetic and detail-oriented, Dr Sapana brings expertise in orthodontics, clear aligners and patient education — supported by a family-run team that has cared for Bannockburn and surrounds for over 30 years, with happy gas, ceiling TVs and a calming environment for anyone who feels nervous.</p>
+    <div class="sec-head reveal">
+      <p class="eyebrow">Meet your dental team</p>
+      <h2>Six dentists behind every smile</h2>
+      <p>Dr Sapana leads our clear aligner treatments, supported by our whole family-run team — caring for Bannockburn and surrounds for over 30 years.</p>
+    </div>
+    <div class="team-grid">
+      <div class="member reveal">
+        <img src="img/team-sapana.webp" alt="Dr Sapana Patel, clear aligners at Bannockburn Dental">
+        <div class="info"><h3>Dr Sapana Patel</h3><p class="role">Dentist — Orthodontics &amp; Clear Aligners</p><p>Energetic and detail-oriented, with expertise in orthodontics, clear aligners and patient education.</p></div>
+      </div>
+      <div class="member reveal">
+        <img src="img/team-jason.webp" alt="Dr Jason Allsopp, owner and principal dentist at Bannockburn Dental">
+        <div class="info"><h3>Dr Jason Allsopp</h3><p class="role">Owner &amp; Principal Dentist</p><p>Meticulous, gentle and tech-savvy — passionate about comprehensive care, implants, digital smile design and family dentistry.</p></div>
+      </div>
+      <div class="member reveal">
+        <img src="img/team-adelaide.webp" alt="Dr Adelaide Annand, dentist at Bannockburn Dental">
+        <div class="info"><h3>Dr Adelaide Annand</h3><p class="role">Dentist</p><p>Kind, calming and great with children — every patient feels heard and comfortable.</p></div>
+      </div>
+      <div class="member reveal">
+        <img src="img/team-frazer.webp" alt="Dr Frazer Gatens, dentist at Bannockburn Dental">
+        <div class="info"><h3>Dr Frazer Gatens</h3><p class="role">Dentist</p><p>Rural experience and a love for all things oral surgery, endodontics and sleep medicine.</p></div>
+      </div>
+      <div class="member reveal">
+        <img src="img/team-meenakshi.webp" alt="Dr Meenakshi Rajcoomar, dentist at Bannockburn Dental">
+        <div class="info"><h3>Dr Meenakshi Rajcoomar</h3><p class="role">Dentist</p><p>Joined our team after practising in Melbourne since graduating from the University of Melbourne in 2004.</p></div>
+      </div>
+      <div class="member reveal">
+        <img src="img/team-tom.webp" alt="Dr Tom Lu, dentist at Bannockburn Dental">
+        <div class="info"><h3>Dr Tom (Hanzhi) Lu</h3><p class="role">Dentist</p><p>A University of Melbourne graduate passionate about gentle, family-friendly dental care.</p></div>
+      </div>
     </div>
   </div>
 </section>

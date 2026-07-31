@@ -21,7 +21,7 @@ Validate: GET `/api/lead` returns `{"ok":false,"error":"Method not allowed"}` wh
 The `img/ph-*.webp` files are labelled placeholders. Replace with these files from the
 Bannockburn WordPress media library (same slots, same filenames after swap):
 - implants: `dental-implant-img1.jpg` (hero), `dental-Implant-Model-2.jpg` (model), `jaison-profile.png` (Dr Jason)
-- orthodontics: `clear-aligner-img-1.jpg`, `clear-aligners-img.jpg`, `sapna-profile.png` (Dr Sapana)
-- new-patients: `h2-banner-img-1.jpg`, `experienced-team-new.jpg`, `confort-focused.jpg`, `family-owned-with-care.jpg`
+- orthodontics: `clear-aligner-img-1.jpg`, `clear-aligners-img.jpg`, `Clear-aligner-img2.jpg`, `clear-aligner-img-4.jpg`, plus the six team headshots (same files as new-patients)
+- new-patients: `h2-banner-img-1.jpg`, `experienced-team-new.jpg`, `confort-focused.jpg`, `family-owned-with-care.jpg`, `gentle-and-caring.jpg`, plus team headshots `jaison-profile.png`, `sapna-profile.png`, `alaide-profile.png`, `frazer-profile.png`, `output_final.png` (Dr Meenakshi), `tomlu_framed.png` (Dr Tom)
 
 All pages are `noindex` while in review — remove the robots meta before indexing.

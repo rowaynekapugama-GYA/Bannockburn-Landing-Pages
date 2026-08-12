@@ -17,11 +17,9 @@ Push to GitHub -> import in Vercel. For the implants form set env vars
 optionally SMTP_FROM, ALLOW_ORIGIN), then redeploy.
 Validate: GET `/api/lead` returns `{"ok":false,"error":"Method not allowed"}` when live.
 
-## Photo placeholders to replace
-The `img/ph-*.webp` files are labelled placeholders. Replace with these files from the
-Bannockburn WordPress media library (same slots, same filenames after swap):
-- implants: `dental-implant-img1.jpg` (hero), `dental-Implant-Model-2.jpg` (model), `jaison-profile.png` (Dr Jason)
-- orthodontics: `clear-aligner-img-1.jpg`, `clear-aligners-img.jpg`, `Clear-aligner-img2.jpg`, `clear-aligner-img-4.jpg`, plus the six team headshots (same files as new-patients)
-- new-patients: `h2-banner-img-1.jpg`, `experienced-team-new.jpg`, `confort-focused.jpg`, `family-owned-with-care.jpg`, `gentle-and-caring.jpg`, plus team headshots `jaison-profile.png`, `sapna-profile.png`, `alaide-profile.png`, `frazer-profile.png`, `output_final.png` (Dr Meenakshi), `tomlu_framed.png` (Dr Tom)
+## Images
+All photos are hotlinked from the practice's WordPress media library (bannockburndental.com.au/wp-content/uploads) and, for the two before/after slider cases, from imgur. No local image files are needed apart from the two logo PNGs in each img/ folder.
+All slider and team photos are now served from the practice's own WordPress library (uploads/2026/08/) — no third-party image hosts in use.
+
 
 All pages are `noindex` while in review — remove the robots meta before indexing.

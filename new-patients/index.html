@@ -230,6 +230,27 @@ details p{color:var(--slate);font-size:.92rem;margin:.7rem 0 0}
 @media(max-width:640px){.btn-callico{display:inline-flex}}
 @media(max-width:900px){.dock{display:flex}}
 @media(min-width:901px){footer{padding-bottom:2.8rem}}
+
+.hero-video{position:relative;border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);background:#000;aspect-ratio:16/10}
+.hero-video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.hero-video .hero-badge{position:absolute;left:14px;bottom:14px;z-index:2}
+@media(max-width:900px){.hero-video{aspect-ratio:16/11}}
+
+/* full-width hero background video */
+.hero-vid{position:relative;overflow:hidden;min-height:92svh;display:flex;align-items:center;background:var(--mint-ink)}
+.hero-vid .hero-bg{position:absolute;inset:0;pointer-events:none}
+.hero-vid .hero-bg iframe{position:absolute;top:50%;left:50%;width:max(100vw,163.6svh);height:max(92svh,56.25vw);transform:translate(-50%,-50%);border:0}
+.hero-vid .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(38,30,25,.82) 0%,rgba(38,30,25,.55) 55%,rgba(38,30,25,.30) 100%)}
+.hero-vid .wrap{position:relative;z-index:2;padding-top:4.5rem;padding-bottom:4.5rem}
+.hero-vid .hero-inner{max-width:600px}
+.hero-vid h1{color:#F7F0E7}
+.hero-vid h1 em{color:var(--mint)}
+.hero-vid p.hero-lede{color:#E8DCCF;margin-top:1rem}
+.hero-vid .eyebrow{color:var(--mint)}
+.hero-vid .badge{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.25);color:#F3EAE0;backdrop-filter:blur(8px)}
+.hero-vid .hero-note{color:#CDbfb2}
+.hero-vid .vid-badge{display:inline-flex;gap:.4rem;align-items:center;background:rgba(255,255,255,.92);color:var(--mint-ink);border-radius:999px;padding:.45rem 1rem;font-size:.82rem;font-weight:700;margin-top:1.2rem}
+@media(max-width:760px){.hero-vid{min-height:86svh}}
 </style>
 </head>
 <body>
@@ -254,12 +275,15 @@ details p{color:var(--slate);font-size:.92rem;margin:.7rem 0 0}
 </header>
 
 <!-- HERO -->
-<section class="hero" id="top">
+<section class="hero hero-vid" id="top">
+  <div class="hero-bg">
+    <iframe src="https://player.vimeo.com/video/1099564464?background=1&autoplay=1&loop=1&muted=1&dnt=1#t=0.5s" title="Bannockburn Dental practice video" allow="autoplay; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  </div>
   <div class="wrap">
-    <div>
+    <div class="hero-inner">
       <p class="eyebrow reveal">Now accepting new patients · Bannockburn</p>
       <h1 class="reveal">Your local family dentist, <em>trusted for generations</em></h1>
-      <p class="reveal" style="color:var(--slate);max-width:520px;margin-top:1rem">Bannockburn Dental is the town's longest standing family dental practice — providing gentle, quality care to Bannockburn and surrounds since 1992. Whether you're due for a check-up or have a concern, our friendly team is here to help.</p>
+      <p class="hero-lede reveal">Bannockburn Dental is the town's longest standing family dental practice — providing gentle, quality care to Bannockburn and surrounds since 1992. Whether you're due for a check-up or have a concern, our friendly team is here to help.</p>
       <div class="badge-row reveal">
         <span class="badge">Happy gas available</span>
         <span class="badge">CDBS bulk billing for eligible kids</span>
@@ -270,11 +294,7 @@ details p{color:var(--slate);font-size:.92rem;margin:.7rem 0 0}
         <a class="btn btn-coral" href="https://apac.dentalhub.online/soe/new/%20?pid=AUALL01" target="_blank" rel="noopener">Book your visit</a>
         <a class="btn btn-ghost" href="tel:0352811899">Call (03) 5281 1899</a>
       </div>
-      <p class="hero-note reveal">We aim to keep our fees below average and offer transparent pricing with no hidden costs.</p>
-    </div>
-    <div class="hero-photo reveal">
-      <img src="img/ph-practice.webp" alt="Bannockburn Dental practice">
-      <div class="hero-badge"><b>Family-owned</b> since 1992</div>
+      <span class="vid-badge reveal">Family-owned since 1992</span>
     </div>
   </div>
 </section>
@@ -287,10 +307,10 @@ details p{color:var(--slate);font-size:.92rem;margin:.7rem 0 0}
       <h2>Comprehensive care you can trust</h2>
     </div>
     <div class="pill-grid">
-      <div class="pill reveal"><b>Gentle &amp; caring</b><span>We take time to explain and listen, helping you feel comfortable at every visit.</span></div>
-      <div class="pill reveal"><img src="img/ph-family.webp" alt="Family-owned practice"><b>Family-owned with heart</b><span>Proudly serving Bannockburn since 1992 with a personal touch.</span></div>
-      <div class="pill reveal"><img src="img/ph-team.webp" alt="Experienced dental team"><b>Experienced team</b><span>Six dentists — a blend of youth and experience with a shared passion for quality dentistry.</span></div>
-      <div class="pill reveal"><img src="img/ph-comfort.webp" alt="Comfort-focused treatment rooms"><b>Comfort focused</b><span>Happy gas, TVs on the ceilings, calming music, and bright, airy rooms.</span></div>
+      <div class="pill reveal"><img src="https://bannockburndental.com.au/wp-content/uploads/2025/07/gentle-and-caring.jpg" alt="Gentle and caring dental treatment"><b>Gentle &amp; caring</b><span>We take time to explain and listen, helping you feel comfortable at every visit.</span></div>
+      <div class="pill reveal"><img src="https://bannockburndental.com.au/wp-content/uploads/2025/07/family-owned-with-care.jpg" alt="Family-owned practice"><b>Family-owned with heart</b><span>Proudly serving Bannockburn since 1992 with a personal touch.</span></div>
+      <div class="pill reveal"><img src="https://bannockburndental.com.au/wp-content/uploads/2025/07/experienced-team-new.jpg" alt="Experienced dental team"><b>Experienced team</b><span>Six dentists — a blend of youth and experience with a shared passion for quality dentistry.</span></div>
+      <div class="pill reveal"><img src="https://bannockburndental.com.au/wp-content/uploads/2025/07/confort-focused.jpg" alt="Comfort-focused treatment rooms"><b>Comfort focused</b><span>Happy gas, TVs on the ceilings, calming music, and bright, airy rooms.</span></div>
     </div>
   </div>
 </section>
@@ -306,7 +326,7 @@ details p{color:var(--slate);font-size:.92rem;margin:.7rem 0 0}
     </div>
     <div class="team-grid">
       <div class="member lead reveal">
-        <img src="img/team-jason.webp" alt="Dr Jason Allsopp, owner and principal dentist at Bannockburn Dental">
+        <img src="https://bannockburndental.com.au/wp-content/uploads/2026/08/1.jpg" alt="Dr Jason Allsopp, owner and principal dentist at Bannockburn Dental">
         <div class="info">
           <h3>Dr Jason Allsopp</h3>
           <p class="role">Owner &amp; Principal Dentist</p>
@@ -314,7 +334,7 @@ details p{color:var(--slate);font-size:.92rem;margin:.7rem 0 0}
         </div>
       </div>
       <div class="member reveal">
-        <img src="img/team-sapana.webp" alt="Dr Sapana Patel, dentist at Bannockburn Dental">
+        <img src="https://bannockburndental.com.au/wp-content/uploads/2026/08/2.jpg" alt="Dr Sapana Patel, dentist at Bannockburn Dental">
         <div class="info">
           <h3>Dr Sapana Patel</h3>
           <p class="role">Dentist</p>
@@ -322,7 +342,7 @@ details p{color:var(--slate);font-size:.92rem;margin:.7rem 0 0}
         </div>
       </div>
       <div class="member reveal">
-        <img src="img/team-adelaide.webp" alt="Dr Adelaide Annand, dentist at Bannockburn Dental">
+        <img src="https://bannockburndental.com.au/wp-content/uploads/2026/08/3.jpg" alt="Dr Adelaide Annand, dentist at Bannockburn Dental">
         <div class="info">
           <h3>Dr Adelaide Annand</h3>
           <p class="role">Dentist</p>
@@ -330,7 +350,7 @@ details p{color:var(--slate);font-size:.92rem;margin:.7rem 0 0}
         </div>
       </div>
       <div class="member reveal">
-        <img src="img/team-frazer.webp" alt="Dr Frazer Gatens, dentist at Bannockburn Dental">
+        <img src="https://bannockburndental.com.au/wp-content/uploads/2026/08/4.jpg" alt="Dr Frazer Gatens, dentist at Bannockburn Dental">
         <div class="info">
           <h3>Dr Frazer Gatens</h3>
           <p class="role">Dentist</p>
@@ -338,7 +358,7 @@ details p{color:var(--slate);font-size:.92rem;margin:.7rem 0 0}
         </div>
       </div>
       <div class="member reveal">
-        <img src="img/team-meenakshi.webp" alt="Dr Meenakshi Rajcoomar, dentist at Bannockburn Dental">
+        <img src="https://bannockburndental.com.au/wp-content/uploads/2026/08/5.jpg" alt="Dr Meenakshi Rajcoomar, dentist at Bannockburn Dental">
         <div class="info">
           <h3>Dr Meenakshi Rajcoomar</h3>
           <p class="role">Dentist</p>
@@ -346,7 +366,7 @@ details p{color:var(--slate);font-size:.92rem;margin:.7rem 0 0}
         </div>
       </div>
       <div class="member reveal">
-        <img src="img/team-tom.webp" alt="Dr Tom Lu, dentist at Bannockburn Dental">
+        <img src="https://bannockburndental.com.au/wp-content/uploads/2026/08/6.jpg" alt="Dr Tom Lu, dentist at Bannockburn Dental">
         <div class="info">
           <h3>Dr Tom (Hanzhi) Lu</h3>
           <p class="role">Dentist</p>

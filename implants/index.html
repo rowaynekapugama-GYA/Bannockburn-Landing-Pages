@@ -177,6 +177,22 @@ footer p{margin:.3rem 0;line-height:1.55}
 .ba-cap b{color:var(--ink)}
 .ba-note{font-size:.8rem;color:var(--slate);margin-top:1.1rem;max-width:760px}
 .ba-wide{margin-top:1.2rem}
+
+/* before/after: side-by-side pairs */
+.ba-pair{display:grid;grid-template-columns:1fr 1fr;gap:3px;background:var(--card-b)}
+.ba-half{position:relative}
+.ba-half img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
+.ba-pair.wide .ba-half img{aspect-ratio:3/2}
+.ba-half .lbl{position:absolute;top:.6rem;left:.6rem;padding:.22rem .7rem;border-radius:999px;font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;pointer-events:none}
+.ba-half .lbl.b{background:rgba(46,38,32,.85);color:#fff}
+.ba-half .lbl.a{background:var(--orange);color:#fff}
+
+/* normal scrolling page: slide-deck behaviour removed */
+.deck{height:auto !important;overflow:visible !important;scroll-snap-type:none !important}
+.slide{min-height:auto !important;scroll-snap-align:none !important;padding:3.6rem 0 !important;display:block !important}
+#s1{min-height:82svh;display:flex !important;align-items:center;padding-top:5.5rem !important}
+.dots{display:none !important}
+html,body{scroll-snap-type:none !important}
 </style>
 </head>
 <body>
@@ -304,73 +320,52 @@ footer p{margin:.3rem 0;line-height:1.55}
       </div>
       <div class="ba-grid">
       <div class="ba-case reveal">
-        <div class="ba-cmp" style="--pos:50%">
-          <img class="after" src="img/ba1-after.webp" alt="Patient after implant treatment at Bannockburn Dental">
-          <img class="before" src="img/ba1-before.webp" alt="Patient before implant treatment">
-          <span class="lbl b">Before</span><span class="lbl a">After</span>
-          <span class="divider"></span><span class="knob">&#8596;</span>
-          <input type="range" min="0" max="100" value="50" aria-label="Compare before and after implant treatment">
+        <div class="ba-pair">
+          <div class="ba-half"><img src="img/ba1-before.webp" alt="Patient before implant treatment at Bannockburn Dental"><span class="lbl b">Before</span></div>
+          <div class="ba-half"><img src="img/ba1-after.webp" alt="Patient after implant treatment at Bannockburn Dental"><span class="lbl a">After</span></div>
         </div>
         <div class="ba-cap"><b>Implant-supported smile</b> — missing front teeth replaced</div>
       </div>
       <div class="ba-case reveal">
-        <div class="ba-cmp" style="--pos:50%">
-          <img class="after" src="img/ba2-after.webp" alt="Patient after implant treatment at Bannockburn Dental">
-          <img class="before" src="img/ba2-before.webp" alt="Patient before implant treatment">
-          <span class="lbl b">Before</span><span class="lbl a">After</span>
-          <span class="divider"></span><span class="knob">&#8596;</span>
-          <input type="range" min="0" max="100" value="50" aria-label="Compare before and after implant treatment">
+        <div class="ba-pair">
+          <div class="ba-half"><img src="img/ba2-before.webp" alt="Patient before implant treatment at Bannockburn Dental"><span class="lbl b">Before</span></div>
+          <div class="ba-half"><img src="img/ba2-after.webp" alt="Patient after implant treatment at Bannockburn Dental"><span class="lbl a">After</span></div>
         </div>
         <div class="ba-cap"><b>Single &amp; multiple implants</b> — upper teeth restored</div>
       </div>
       <div class="ba-case reveal">
-        <div class="ba-cmp" style="--pos:50%">
-          <img class="after" src="img/ba3-after.webp" alt="Patient after implant treatment at Bannockburn Dental">
-          <img class="before" src="img/ba3-before.webp" alt="Patient before implant treatment">
-          <span class="lbl b">Before</span><span class="lbl a">After</span>
-          <span class="divider"></span><span class="knob">&#8596;</span>
-          <input type="range" min="0" max="100" value="50" aria-label="Compare before and after implant treatment">
+        <div class="ba-pair">
+          <div class="ba-half"><img src="img/ba3-before.webp" alt="Patient before implant treatment at Bannockburn Dental"><span class="lbl b">Before</span></div>
+          <div class="ba-half"><img src="img/ba3-after.webp" alt="Patient after implant treatment at Bannockburn Dental"><span class="lbl a">After</span></div>
         </div>
         <div class="ba-cap"><b>Full smile rehabilitation</b> — implants and crowns</div>
       </div>
       <div class="ba-case reveal">
-        <div class="ba-cmp" style="--pos:50%">
-          <img class="after" src="img/ba4-after.webp" alt="Patient after implant treatment at Bannockburn Dental">
-          <img class="before" src="img/ba4-before.webp" alt="Patient before implant treatment">
-          <span class="lbl b">Before</span><span class="lbl a">After</span>
-          <span class="divider"></span><span class="knob">&#8596;</span>
-          <input type="range" min="0" max="100" value="50" aria-label="Compare before and after implant treatment">
+        <div class="ba-pair">
+          <div class="ba-half"><img src="img/ba4-before.webp" alt="Patient before implant treatment at Bannockburn Dental"><span class="lbl b">Before</span></div>
+          <div class="ba-half"><img src="img/ba4-after.webp" alt="Patient after implant treatment at Bannockburn Dental"><span class="lbl a">After</span></div>
         </div>
         <div class="ba-cap"><b>Implant bridge</b> — gaps closed for good</div>
       </div>
       <div class="ba-case reveal">
-        <div class="ba-cmp" style="--pos:50%">
-          <img class="after" src="img/ba5-after.webp" alt="Patient after implant treatment at Bannockburn Dental">
-          <img class="before" src="img/ba5-before.webp" alt="Patient before implant treatment">
-          <span class="lbl b">Before</span><span class="lbl a">After</span>
-          <span class="divider"></span><span class="knob">&#8596;</span>
-          <input type="range" min="0" max="100" value="50" aria-label="Compare before and after implant treatment">
+        <div class="ba-pair">
+          <div class="ba-half"><img src="img/ba5-before.webp" alt="Patient before implant treatment at Bannockburn Dental"><span class="lbl b">Before</span></div>
+          <div class="ba-half"><img src="img/ba5-after.webp" alt="Patient after implant treatment at Bannockburn Dental"><span class="lbl a">After</span></div>
         </div>
         <div class="ba-cap"><b>Front tooth implant</b> — seamless natural match</div>
       </div>
       <div class="ba-case reveal">
-        <div class="ba-cmp" style="--pos:50%">
-          <img class="after" src="img/ba6-after.webp" alt="Patient after implant treatment at Bannockburn Dental">
-          <img class="before" src="img/ba6-before.webp" alt="Patient before implant treatment">
-          <span class="lbl b">Before</span><span class="lbl a">After</span>
-          <span class="divider"></span><span class="knob">&#8596;</span>
-          <input type="range" min="0" max="100" value="50" aria-label="Compare before and after implant treatment">
+        <div class="ba-pair">
+          <div class="ba-half"><img src="img/ba6-before.webp" alt="Patient before implant treatment at Bannockburn Dental"><span class="lbl b">Before</span></div>
+          <div class="ba-half"><img src="img/ba6-after.webp" alt="Patient after implant treatment at Bannockburn Dental"><span class="lbl a">After</span></div>
         </div>
         <div class="ba-cap"><b>Implant-retained teeth</b> — a complete new smile</div>
       </div>
       </div>
       <div class="ba-case ba-wide reveal">
-        <div class="ba-cmp wide" style="--pos:50%">
-          <img class="after" src="img/ba7-after.webp" alt="Clinical view after full upper implant rehabilitation">
-          <img class="before" src="img/ba7-before.webp" alt="Clinical view before implant rehabilitation">
-          <span class="lbl b">Before</span><span class="lbl a">After</span>
-          <span class="divider"></span><span class="knob">&#8596;</span>
-          <input type="range" min="0" max="100" value="50" aria-label="Compare the clinical view before and after full upper rehabilitation">
+        <div class="ba-pair wide">
+          <div class="ba-half"><img src="img/ba7-before.webp" alt="Patient before implant treatment at Bannockburn Dental"><span class="lbl b">Before</span></div>
+          <div class="ba-half"><img src="img/ba7-after.webp" alt="Patient after implant treatment at Bannockburn Dental"><span class="lbl a">After</span></div>
         </div>
         <div class="ba-cap"><b>The clinical view</b> — failing teeth replaced with a full implant-supported restoration</div>
       </div>

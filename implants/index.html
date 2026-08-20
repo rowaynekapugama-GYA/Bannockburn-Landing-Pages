@@ -158,6 +158,25 @@ footer p{margin:.3rem 0;line-height:1.55}
 .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s}
 .reveal.in{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.deck{scroll-behavior:auto}}
+
+/* before/after comparison sliders */
+.ba-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem}
+@media(max-width:860px){.ba-grid{grid-template-columns:1fr}}
+.ba-case{background:var(--card);border:1px solid var(--card-b);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);backdrop-filter:blur(12px)}
+.ba-cmp{position:relative;aspect-ratio:1/1;overflow:hidden;touch-action:none}
+.ba-cmp.wide{aspect-ratio:3/2}
+.ba-cmp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;user-select:none;-webkit-user-drag:none}
+.ba-cmp .before{clip-path:inset(0 calc(100% - var(--pos,50%)) 0 0)}
+.ba-cmp .divider{position:absolute;top:0;bottom:0;left:var(--pos,50%);width:3px;background:#fff;box-shadow:0 0 8px rgba(0,0,0,.35);transform:translateX(-50%);pointer-events:none}
+.ba-cmp .knob{position:absolute;top:50%;left:var(--pos,50%);transform:translate(-50%,-50%);width:44px;height:44px;border-radius:50%;background:var(--orange);color:#fff;display:grid;place-items:center;box-shadow:0 6px 16px rgba(201,106,40,.45);pointer-events:none;font-weight:800;font-size:.9rem}
+.ba-cmp .lbl{position:absolute;top:.7rem;padding:.25rem .75rem;border-radius:999px;background:rgba(255,255,255,.92);font-size:.7rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--espresso);pointer-events:none}
+.ba-cmp .lbl.b{left:.7rem}
+.ba-cmp .lbl.a{right:.7rem}
+.ba-cmp input[type=range]{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.ba-cap{padding:.85rem 1.15rem;font-size:.85rem;color:var(--slate)}
+.ba-cap b{color:var(--ink)}
+.ba-note{font-size:.8rem;color:var(--slate);margin-top:1.1rem;max-width:760px}
+.ba-wide{margin-top:1.2rem}
 </style>
 </head>
 <body>
@@ -175,7 +194,7 @@ footer p{margin:.3rem 0;line-height:1.55}
 
 <nav class="dots" aria-label="Slides">
   <a href="#s1" data-dot></a><a href="#s2" data-dot></a><a href="#s3" data-dot></a><a href="#s4" data-dot></a>
-  <a href="#s5" data-dot></a><a href="#s6" data-dot></a><a href="#s7" data-dot></a>
+  <a href="#s5" data-dot></a><a href="#s5b" data-dot></a><a href="#s6" data-dot></a><a href="#s7" data-dot></a>
 </nav>
 
 <main class="deck" id="deck">
@@ -270,6 +289,93 @@ footer p{margin:.3rem 0;line-height:1.55}
         <div class="card reveal"><h3>Implant-retained dentures</h3><p>Full or partial dentures secured with implants for improved stability and comfort — no slipping.</p></div>
       </div>
       <div class="cta-row" style="margin-top:2rem">
+        <a class="btn btn-orange reveal" href="#s7">Request a consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 5B · BEFORE & AFTER -->
+  <section class="slide" id="s5b">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow reveal">Real Bannockburn patients</p>
+        <h2 class="reveal">Before &amp; after: drag to see the change</h2>
+        <p class="reveal">Every smile below was restored right here in Bannockburn with implant treatment by our team.</p>
+      </div>
+      <div class="ba-grid">
+      <div class="ba-case reveal">
+        <div class="ba-cmp" style="--pos:50%">
+          <img class="after" src="img/ba1-after.webp" alt="Patient after implant treatment at Bannockburn Dental">
+          <img class="before" src="img/ba1-before.webp" alt="Patient before implant treatment">
+          <span class="lbl b">Before</span><span class="lbl a">After</span>
+          <span class="divider"></span><span class="knob">&#8596;</span>
+          <input type="range" min="0" max="100" value="50" aria-label="Compare before and after implant treatment">
+        </div>
+        <div class="ba-cap"><b>Implant-supported smile</b> — missing front teeth replaced</div>
+      </div>
+      <div class="ba-case reveal">
+        <div class="ba-cmp" style="--pos:50%">
+          <img class="after" src="img/ba2-after.webp" alt="Patient after implant treatment at Bannockburn Dental">
+          <img class="before" src="img/ba2-before.webp" alt="Patient before implant treatment">
+          <span class="lbl b">Before</span><span class="lbl a">After</span>
+          <span class="divider"></span><span class="knob">&#8596;</span>
+          <input type="range" min="0" max="100" value="50" aria-label="Compare before and after implant treatment">
+        </div>
+        <div class="ba-cap"><b>Single &amp; multiple implants</b> — upper teeth restored</div>
+      </div>
+      <div class="ba-case reveal">
+        <div class="ba-cmp" style="--pos:50%">
+          <img class="after" src="img/ba3-after.webp" alt="Patient after implant treatment at Bannockburn Dental">
+          <img class="before" src="img/ba3-before.webp" alt="Patient before implant treatment">
+          <span class="lbl b">Before</span><span class="lbl a">After</span>
+          <span class="divider"></span><span class="knob">&#8596;</span>
+          <input type="range" min="0" max="100" value="50" aria-label="Compare before and after implant treatment">
+        </div>
+        <div class="ba-cap"><b>Full smile rehabilitation</b> — implants and crowns</div>
+      </div>
+      <div class="ba-case reveal">
+        <div class="ba-cmp" style="--pos:50%">
+          <img class="after" src="img/ba4-after.webp" alt="Patient after implant treatment at Bannockburn Dental">
+          <img class="before" src="img/ba4-before.webp" alt="Patient before implant treatment">
+          <span class="lbl b">Before</span><span class="lbl a">After</span>
+          <span class="divider"></span><span class="knob">&#8596;</span>
+          <input type="range" min="0" max="100" value="50" aria-label="Compare before and after implant treatment">
+        </div>
+        <div class="ba-cap"><b>Implant bridge</b> — gaps closed for good</div>
+      </div>
+      <div class="ba-case reveal">
+        <div class="ba-cmp" style="--pos:50%">
+          <img class="after" src="img/ba5-after.webp" alt="Patient after implant treatment at Bannockburn Dental">
+          <img class="before" src="img/ba5-before.webp" alt="Patient before implant treatment">
+          <span class="lbl b">Before</span><span class="lbl a">After</span>
+          <span class="divider"></span><span class="knob">&#8596;</span>
+          <input type="range" min="0" max="100" value="50" aria-label="Compare before and after implant treatment">
+        </div>
+        <div class="ba-cap"><b>Front tooth implant</b> — seamless natural match</div>
+      </div>
+      <div class="ba-case reveal">
+        <div class="ba-cmp" style="--pos:50%">
+          <img class="after" src="img/ba6-after.webp" alt="Patient after implant treatment at Bannockburn Dental">
+          <img class="before" src="img/ba6-before.webp" alt="Patient before implant treatment">
+          <span class="lbl b">Before</span><span class="lbl a">After</span>
+          <span class="divider"></span><span class="knob">&#8596;</span>
+          <input type="range" min="0" max="100" value="50" aria-label="Compare before and after implant treatment">
+        </div>
+        <div class="ba-cap"><b>Implant-retained teeth</b> — a complete new smile</div>
+      </div>
+      </div>
+      <div class="ba-case ba-wide reveal">
+        <div class="ba-cmp wide" style="--pos:50%">
+          <img class="after" src="img/ba7-after.webp" alt="Clinical view after full upper implant rehabilitation">
+          <img class="before" src="img/ba7-before.webp" alt="Clinical view before implant rehabilitation">
+          <span class="lbl b">Before</span><span class="lbl a">After</span>
+          <span class="divider"></span><span class="knob">&#8596;</span>
+          <input type="range" min="0" max="100" value="50" aria-label="Compare the clinical view before and after full upper rehabilitation">
+        </div>
+        <div class="ba-cap"><b>The clinical view</b> — failing teeth replaced with a full implant-supported restoration</div>
+      </div>
+      <p class="ba-note reveal">Photos show real Bannockburn Dental patients, shared with their consent. Results vary from person to person; suitability and expected outcomes can only be determined after a comprehensive consultation and 3D imaging.</p>
+      <div class="cta-row" style="margin-top:1.6rem">
         <a class="btn btn-orange reveal" href="#s7">Request a consultation</a>
       </div>
     </div>
@@ -404,6 +510,11 @@ document.getElementById('leadForm').addEventListener('submit',async(ev)=>{
     else{throw new Error(out.error||'send failed')}
   }catch(e){st.style.display='block';st.style.color='#A85419';st.textContent='Something went wrong — please call us on (03) 5281 1899.'}
   btn.disabled=false;btn.textContent='Send request';
+});
+
+document.querySelectorAll('.ba-cmp').forEach(function(c){
+  var r=c.querySelector('input[type=range]');
+  r.addEventListener('input',function(){c.style.setProperty('--pos',r.value+'%')});
 });
 </script>
 </body>

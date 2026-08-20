@@ -193,6 +193,24 @@ footer p{margin:.3rem 0;line-height:1.55}
 #s1{min-height:82svh;display:flex !important;align-items:center;padding-top:5.5rem !important}
 .dots{display:none !important}
 html,body{scroll-snap-type:none !important}
+
+/* full-bleed photo hero */
+#s1{position:relative;overflow:hidden;min-height:88svh !important}
+#s1 .hero-bg{position:absolute;inset:0;z-index:0}
+#s1 .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center 38%}
+#s1 .hero-bg::after{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(24,17,12,.90) 0%,rgba(24,17,12,.72) 46%,rgba(24,17,12,.30) 100%)}
+@media(max-width:820px){#s1 .hero-bg::after{background:linear-gradient(180deg,rgba(24,17,12,.88) 0%,rgba(24,17,12,.55) 100%)}}
+#s1 .wrap{position:relative;z-index:2}
+#s1 .hero-grid{grid-template-columns:1fr;max-width:820px;margin-left:0}
+#s1 .hero-photo{display:none}
+#s1 h1{color:#FFF8F2;font-size:clamp(2.4rem,5.2vw,4rem)}
+#s1 h1 em{color:#F5B27C}
+#s1 .sub{color:#EADFD5}
+#s1 .eyebrow{color:#F5B27C}
+#s1 .chip{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);color:#FFF3E8;backdrop-filter:blur(10px)}
+#s1 .est{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.22);color:#EADFD5;backdrop-filter:blur(10px)}
+#s1 .est b{color:#fff}
+#s1 .btn-glass{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.35);color:#fff}
 </style>
 </head>
 <body>
@@ -217,6 +235,7 @@ html,body{scroll-snap-type:none !important}
 
   <!-- SLIDE 1 · HERO -->
   <section class="slide" id="s1">
+    <div class="hero-bg" aria-hidden="true"><img src="https://bannockburndental.com.au/wp-content/uploads/2026/08/dental-implant-img1.jpg" alt=""></div>
     <div class="wrap hero-grid">
       <div>
         <p class="eyebrow reveal">Dental implants · Bannockburn &amp; Geelong region</p>
@@ -256,60 +275,6 @@ html,body{scroll-snap-type:none !important}
       <img class="reveal" src="https://bannockburndental.com.au/wp-content/uploads/2025/07/dental-Implant-Model-2.jpg" alt="Dental implant model showing titanium post and crown">
     </div>
   </section>
-
-  <!-- SLIDE 3 · GUIDED TECHNOLOGY -->
-  <section class="slide" id="s3">
-    <div class="wrap">
-      <div class="sec-head">
-        <p class="eyebrow reveal">Precision technology</p>
-        <h2 class="reveal">Guided implants: no guesswork, just precision</h2>
-        <p class="reveal">We plan every detail of your treatment with 3D imaging and digital scanning, then place your implant using a custom 3D-printed surgical guide — for safer, minimally invasive keyhole placement.</p>
-      </div>
-      <ul class="list" style="max-width:760px">
-        <li class="reveal"><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg></span><span><b>Ideal position, depth and angle</b> mapped digitally before surgery begins — for stability and a natural look from day one.</span></li>
-        <li class="reveal"><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg></span><span><b>Nerves and sinuses avoided</b> — digital mapping shows sensitive anatomy clearly, reducing risk and improving comfort.</span></li>
-        <li class="reveal"><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg></span><span><b>Less time in the chair</b> — precise, minimally invasive placement means less trauma, less swelling and faster healing.</span></li>
-        <li class="reveal"><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg></span><span><b>Better long-term success</b> — accurate placement helps the implant integrate strongly with your bone for years to come.</span></li>
-      </ul>
-    </div>
-  </section>
-
-  <!-- SLIDE 4 · THE JOURNEY -->
-  <section class="slide" id="s4">
-    <div class="wrap">
-      <div class="sec-head">
-        <p class="eyebrow reveal">Your implant journey</p>
-        <h2 class="reveal">From first scan to final smile</h2>
-      </div>
-      <div class="steps">
-        <div class="step reveal"><h3>Consultation &amp; assessment</h3><p>Detailed examination, digital X-rays and 3D Cone Beam CT imaging to assess your bone and suitability.</p></div>
-        <div class="step reveal"><h3>Digital planning</h3><p>Advanced software plans the optimal implant position; a custom 3D-printed guide is made for your surgery.</p></div>
-        <div class="step reveal"><h3>Implant placement</h3><p>Under local anaesthesia, the implant is gently guided into place via keyhole surgery — most patients report minimal discomfort.</p></div>
-        <div class="step reveal"><h3>Healing &amp; integration</h3><p>The implant integrates with your jawbone over several months; a temporary restoration can sometimes be worn meanwhile.</p></div>
-        <div class="step reveal"><h3>Final restoration</h3><p>A custom crown, bridge or denture is attached for a beautiful, functional result — with follow-ups to keep it healthy.</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- SLIDE 5 · RESTORATION TYPES -->
-  <section class="slide" id="s5">
-    <div class="wrap">
-      <div class="sec-head">
-        <p class="eyebrow reveal">Options for every smile</p>
-        <h2 class="reveal">One tooth, several, or a full arch</h2>
-        <p class="reveal">Our dentists will assess your oral health and recommend the most suitable option for your needs.</p>
-      </div>
-      <div class="resto">
-        <div class="card reveal"><h3>Single-tooth implants</h3><p>Replaces one missing tooth with a titanium implant and a ceramic crown — no impact on neighbouring teeth.</p></div>
-        <div class="card reveal"><h3>Implant-supported bridges</h3><p>When multiple teeth are missing, two or more implants support a fixed bridge.</p></div>
-        <div class="card reveal"><h3>Implant-retained dentures</h3><p>Full or partial dentures secured with implants for improved stability and comfort — no slipping.</p></div>
-      </div>
-      <div class="cta-row" style="margin-top:2rem">
-        <a class="btn btn-orange reveal" href="#s7">Request a consultation</a>
-      </div>
-    </div>
-  </section>
-
   <!-- SLIDE 5B · BEFORE & AFTER -->
   <section class="slide" id="s5b">
     <div class="wrap">
@@ -376,6 +341,60 @@ html,body{scroll-snap-type:none !important}
     </div>
   </section>
 
+
+  <!-- SLIDE 3 · GUIDED TECHNOLOGY -->
+  <section class="slide" id="s3">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow reveal">Precision technology</p>
+        <h2 class="reveal">Guided implants: no guesswork, just precision</h2>
+        <p class="reveal">We plan every detail of your treatment with 3D imaging and digital scanning, then place your implant using a custom 3D-printed surgical guide — for safer, minimally invasive keyhole placement.</p>
+      </div>
+      <ul class="list" style="max-width:760px">
+        <li class="reveal"><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg></span><span><b>Ideal position, depth and angle</b> mapped digitally before surgery begins — for stability and a natural look from day one.</span></li>
+        <li class="reveal"><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg></span><span><b>Nerves and sinuses avoided</b> — digital mapping shows sensitive anatomy clearly, reducing risk and improving comfort.</span></li>
+        <li class="reveal"><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg></span><span><b>Less time in the chair</b> — precise, minimally invasive placement means less trauma, less swelling and faster healing.</span></li>
+        <li class="reveal"><span class="tick"><svg viewBox="0 0 24 24"><path d="M5 12l5 5L20 6"/></svg></span><span><b>Better long-term success</b> — accurate placement helps the implant integrate strongly with your bone for years to come.</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- SLIDE 4 · THE JOURNEY -->
+  <section class="slide" id="s4">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow reveal">Your implant journey</p>
+        <h2 class="reveal">From first scan to final smile</h2>
+      </div>
+      <div class="steps">
+        <div class="step reveal"><h3>Consultation &amp; assessment</h3><p>Detailed examination, digital X-rays and 3D Cone Beam CT imaging to assess your bone and suitability.</p></div>
+        <div class="step reveal"><h3>Digital planning</h3><p>Advanced software plans the optimal implant position; a custom 3D-printed guide is made for your surgery.</p></div>
+        <div class="step reveal"><h3>Implant placement</h3><p>Under local anaesthesia, the implant is gently guided into place via keyhole surgery — most patients report minimal discomfort.</p></div>
+        <div class="step reveal"><h3>Healing &amp; integration</h3><p>The implant integrates with your jawbone over several months; a temporary restoration can sometimes be worn meanwhile.</p></div>
+        <div class="step reveal"><h3>Final restoration</h3><p>A custom crown, bridge or denture is attached for a beautiful, functional result — with follow-ups to keep it healthy.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 5 · RESTORATION TYPES -->
+  <section class="slide" id="s5">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow reveal">Options for every smile</p>
+        <h2 class="reveal">One tooth, several, or a full arch</h2>
+        <p class="reveal">Our dentists will assess your oral health and recommend the most suitable option for your needs.</p>
+      </div>
+      <div class="resto">
+        <div class="card reveal"><h3>Single-tooth implants</h3><p>Replaces one missing tooth with a titanium implant and a ceramic crown — no impact on neighbouring teeth.</p></div>
+        <div class="card reveal"><h3>Implant-supported bridges</h3><p>When multiple teeth are missing, two or more implants support a fixed bridge.</p></div>
+        <div class="card reveal"><h3>Implant-retained dentures</h3><p>Full or partial dentures secured with implants for improved stability and comfort — no slipping.</p></div>
+      </div>
+      <div class="cta-row" style="margin-top:2rem">
+        <a class="btn btn-orange reveal" href="#s7">Request a consultation</a>
+      </div>
+    </div>
+  </section>
+
   <!-- SLIDE 6 · TEAM + FAQ -->
   <section class="slide" id="s6">
     <div class="wrap">
@@ -429,39 +448,12 @@ html,body{scroll-snap-type:none !important}
         <details class="reveal"><summary>Am I too old for implants?</summary><p>Not at all. Many people get implants in their 60s or 70s. If your general and oral health is good, age isn't a problem.</p></details>
         <details class="reveal"><summary>Will my health fund cover implants?</summary><p>Some private health funds offer partial cover. We'll help you check your policy and provide quotes for pre-approval.</p></details>
       </div>
-      <div class="card reveal">
-        <h3 style="font-family:var(--body);font-weight:700;font-size:1.1rem">Request an implant consultation</h3>
-        <form id="leadForm" novalidate>
-          <div class="row">
-            <div><label for="firstName">First name</label><input id="firstName" name="firstName" autocomplete="given-name" required></div>
-            <div><label for="lastName">Last name</label><input id="lastName" name="lastName" autocomplete="family-name" required></div>
-          </div>
-          <label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required>
-          <label for="phoneNumber">Phone</label><input id="phoneNumber" name="phoneNumber" type="tel" autocomplete="tel" required>
-          <label>What best describes you?</label>
-          <div class="seg" role="radiogroup" aria-label="What best describes you?">
-            <span class="opt">
-              <input type="radio" name="situation" value="Missing one tooth" checked>
-              <span class="face"><svg viewBox="0 0 24 24"><path d="M12 3c-3 0-5 2-5 5 0 4 2 5 2 9 0 2 1 4 3 4s3-2 3-4c0-4 2-5 2-9 0-3-2-5-5-5z"/></svg>Missing one tooth</span>
-            </span>
-            <span class="opt">
-              <input type="radio" name="situation" value="Missing several teeth">
-              <span class="face"><svg viewBox="0 0 24 24"><path d="M4 14c0-3 1.5-5 4-5s4 2 4 5M12 14c0-3 1.5-5 4-5s4 2 4 5"/></svg>Missing several teeth</span>
-            </span>
-            <span class="opt">
-              <input type="radio" name="situation" value="Considering a full arch / denture alternative">
-              <span class="face"><svg viewBox="0 0 24 24"><path d="M3 12c0-5 4-8 9-8s9 3 9 8-4 8-9 8-9-3-9-8z"/><path d="M7 12h10"/></svg>Full arch / denture alternative</span>
-            </span>
-            <span class="opt">
-              <input type="radio" name="situation" value="Not sure - I'd like advice">
-              <span class="face"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5A2.5 2.5 0 1 1 12 12.5v1.5M12 17h.01"/></svg>Not sure — I'd like advice</span>
-            </span>
-          </div>
-          <input class="hp" type="text" name="company" tabindex="-1" autocomplete="off">
-          <button class="btn btn-orange" type="submit" style="width:100%;margin-top:1.2rem">Send request</button>
-          <p class="form-status" id="formStatus"></p>
-          <p class="form-note">By submitting, you agree to be contacted by Bannockburn Dental about your enquiry. A consultation is required to determine suitability.</p>
-        </form>
+      <div class="card reveal" style="align-self:start">
+        <h3 style="font-family:var(--body);font-weight:700;font-size:1.15rem;margin-bottom:.4rem">Book your implant consultation</h3>
+        <p style="color:var(--slate);font-size:.92rem;margin:0 0 1.2rem">Book online in under a minute through our secure booking system, or call and our friendly team will find a time that suits you.</p>
+        <a class="btn btn-orange" href="https://apac.dentalhub.online/soe/new/%20?pid=AUALL01" target="_blank" rel="noopener" style="width:100%;justify-content:center;margin-bottom:.75rem">Book online now</a>
+        <a class="btn btn-glass" href="tel:0352811899" style="width:100%;justify-content:center">Call (03) 5281 1899</a>
+        <p style="color:var(--slate);font-size:.8rem;margin:1.1rem 0 0">Mon/Wed 8:30–5 · Tue till 7:30pm · Thu till 6pm · Fri 8–4<br>4/13 High Street, Bannockburn</p>
       </div>
     </div>
   </section>
@@ -492,7 +484,7 @@ const so=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){con
 slides.forEach(s=>so.observe(s));
 
 const FORM_ENDPOINT="/api/lead";
-document.getElementById('leadForm').addEventListener('submit',async(ev)=>{
+var _lf=document.getElementById('leadForm'); if(_lf) _lf.addEventListener('submit',async(ev)=>{
   ev.preventDefault();
   const f=ev.target, st=document.getElementById('formStatus');
   const data=Object.fromEntries(new FormData(f).entries());

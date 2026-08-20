@@ -211,6 +211,15 @@ html,body{scroll-snap-type:none !important}
 #s1 .est{background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.22);color:#EADFD5;backdrop-filter:blur(10px)}
 #s1 .est b{color:#fff}
 #s1 .btn-glass{background:rgba(255,255,255,.14);border-color:rgba(255,255,255,.35);color:#fff}
+
+/* hero refined: compact, centred, video behind */
+#s1{min-height:72svh !important;display:flex !important;align-items:center;padding:6.5rem 0 3.5rem !important}
+#s1 .hero-bg iframe{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:max(100vw,130svh);height:max(73svh,56.25vw);border:0;pointer-events:none}
+#s1 .hero-bg::after{background:linear-gradient(180deg,rgba(24,17,12,.82) 0%,rgba(24,17,12,.62) 55%,rgba(24,17,12,.78) 100%) !important}
+#s1 .hero-grid{max-width:860px;margin:0 auto;text-align:center;justify-items:center}
+#s1 .chip-row,#s1 .cta-row{justify-content:center}
+#s1 .est{display:inline-block;text-align:center}
+#s1 h1{font-size:clamp(2.2rem,4.6vw,3.4rem)}
 </style>
 </head>
 <body>
@@ -235,7 +244,10 @@ html,body{scroll-snap-type:none !important}
 
   <!-- SLIDE 1 · HERO -->
   <section class="slide" id="s1">
-    <div class="hero-bg" aria-hidden="true"><img src="https://bannockburndental.com.au/wp-content/uploads/2026/08/dental-implant-img1.jpg" alt=""></div>
+    <div class="hero-bg" aria-hidden="true">
+      <img src="https://bannockburndental.com.au/wp-content/uploads/2026/08/dental-implant-img1.jpg" alt="">
+      <iframe src="https://player.vimeo.com/video/1099564464?background=1&autoplay=1&loop=1&muted=1&dnt=1#t=0.5s" title="" allow="autoplay; fullscreen; picture-in-picture" loading="lazy" tabindex="-1"></iframe>
+    </div>
     <div class="wrap hero-grid">
       <div>
         <p class="eyebrow reveal">Dental implants · Bannockburn &amp; Geelong region</p>

@@ -42,10 +42,10 @@ nav a:hover{color:var(--orange)}
 .menu-btn{display:none;background:none;border:0;font-size:1.6rem;color:var(--head);cursor:pointer}
 
 /* hero */
-.hero{position:relative;min-height:88svh;display:flex;align-items:flex-end;color:#fff;background:#3a332d url("https://bannockburndental.com.au/wp-content/uploads/2025/08/1Staff-photo-1-scaled.jpg") center 30%/cover no-repeat}
+.hero{position:relative;min-height:clamp(420px,46vw,640px);display:flex;align-items:flex-end;color:#fff;background:#3a332d url("https://bannockburndental.com.au/wp-content/uploads/2025/08/1Staff-photo-1-scaled.jpg") center 80%/cover no-repeat}
 .hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05) 30%,rgba(0,0,0,.55) 100%)}
 .hero .wrap{position:relative;padding:0 0 4.5rem}
-.hero h1{font-weight:500;font-size:clamp(1.9rem,3.6vw,2.6rem);line-height:1.3;max-width:640px;margin-bottom:1.1rem}
+.hero h1{font-weight:500;font-size:clamp(1.9rem,3.6vw,2.6rem);line-height:1.3;max-width:720px;margin-bottom:1.1rem}
 .hero p{font-size:1rem;font-weight:400;max-width:620px;margin-bottom:1.6rem;color:#fff}
 
 /* sections */
@@ -73,7 +73,7 @@ section.block p b{font-weight:500;color:var(--ink)}
 
 /* image strip between sections */
 .strip{background:#4a423a;line-height:0}
-.strip img{display:block;width:100%;height:auto;max-height:620px;object-fit:cover;object-position:center top}
+.strip img{display:block;width:100%;height:auto;max-height:620px;object-fit:cover;object-position:center 30%}
 
 /* apply form (mirrors the Contact Form 7 layout) */
 .apply{padding:5rem 0 6rem}
@@ -102,7 +102,7 @@ footer a:hover{color:var(--orange)}
 
 @media(max-width:1100px){nav{display:none}.menu-btn{display:block}header .btn{display:none}}
 @media(max-width:820px){.roles{grid-template-columns:1fr}.fcols{grid-template-columns:1fr 1fr}section.block{padding:4.2rem 0}}
-@media(max-width:560px){.fcols{grid-template-columns:1fr}.hero{min-height:78svh}.hero .wrap{padding-bottom:3rem}}
+@media(max-width:560px){.fcols{grid-template-columns:1fr}.hero{min-height:440px}.hero .wrap{padding-bottom:3rem}}
 </style>
 </head>
 <body>
@@ -120,6 +120,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <li><a href="https://bannockburndental.com.au/about-us/">About us</a></li>
         <li><a href="https://bannockburndental.com.au/services/full-mouth-restoration/">Comprehensive dentistry</a></li>
         <li><a href="https://bannockburndental.com.au/services/general-dentistry/">General dentistry</a></li>
+        <li><a href="/careers/">Careers</a></li>
         <li><a href="https://bannockburndental.com.au/contact-us/">Contact us</a></li>
         <li><a href="https://bannockburndental.com.au/services/emergency-dental-care/">Emergency</a></li>
       </ul>
@@ -131,8 +132,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <section class="hero">
   <div class="wrap">
-    <h1>Careers at Bannockburn Dental: Join Our Caring, Community-Focused Team</h1>
-    <p>Bannockburn Dental | Family-owned since 1992 | Supportive, Collaborative Environment</p>
+    <h1>Grow your career with Bannockburn's longest standing dental practice</h1>
+    <p>Now welcoming dentists, dental assistants and support staff. Family-owned since 1992.</p>
     <a class="btn" href="#apply">Apply now</a>
   </div>
 </section>
@@ -140,8 +141,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="block">
   <div class="wrap">
     <h2>Who We Are</h2>
-    <p>For more than 30 years, <b>Bannockburn Dental</b> has proudly supported our community with dental care that's grounded in compassion, quality and genuine relationships.</p>
-    <p>Our team of six dentists, an oral health therapist and dedicated support staff share a commitment to clinical excellence and patient-centred care. We're always keen to hear from people who share our values and want to be part of a friendly, inclusive and supportive team.</p>
+    <p>For more than 30 years, <b>Bannockburn Dental</b> has proudly supported our community with dental care that's grounded in compassion, quality and genuine relationships, built on our family values over two generations.</p>
+    <p>We have grown substantially with our community and are always keen to hear from people who share our values and want to be part of a friendly, inclusive and supportive team.</p>
     <p>We believe every role in our practice is vital, and that includes yours. Our team thrives on respect, trust and a shared sense of purpose.</p>
   </div>
 </section>
@@ -149,12 +150,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <section class="block" style="padding-top:0">
   <div class="wrap">
     <h2>What We Offer</h2>
-    <ul class="plain-list">
-      <li>A modern, well-equipped practice with CBCT, OPG, same-day CEREC crowns and happy gas</li>
-      <li>A positive, respectful team culture where everyone is valued</li>
-      <li>Consistent patient flow and a strong local reputation</li>
-      <li>Support and on-the-job training to help you grow in your role</li>
-      <li>A team that genuinely enjoys working together, and has fun doing it</li>
+    <p>Whether you're just starting out or an experienced clinician, you'll have real support behind you.</p>
+    <p><b>New to dental assisting?</b> You'll learn on the job with one-on-one mentoring from a dedicated team member, following a clear training plan so you always know what's next. When you're ready, we'll support you to complete your Cert III in Dental Assisting through TAFE.</p>
+    <p><b>An experienced clinician?</b> You'll join a modern practice with CBCT, OPG and same-day CEREC crowns, a loyal local patient base, and an experienced team that lets you focus on great dentistry. We work as a collaborative practice with active mentoring and support.</p>
+    <ul class="ring-list" style="margin-top:1.4rem">
+      <li>Above-award pay rates</li>
+      <li>One-on-one mentoring and a structured training program</li>
+      <li>Support to complete your Cert III in Dental Assisting</li>
+      <li>Modern technology and a well-equipped practice</li>
+      <li>Staff dental discount (T&amp;Cs apply)</li>
+      <li>A friendly team with social events throughout the year</li>
     </ul>
   </div>
 </section>
@@ -164,36 +169,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <h2>Roles We Hire For</h2>
     <div class="roles">
       <div class="role"><h3>Dental Assistant</h3><p>Chairside support across general, restorative and preventive care, plus sterilisation, room preparation and helping patients feel at ease.</p></div>
-      <div class="role"><h3>Oral Health Therapist</h3><p>Prevention, hygiene and children's care, working closely with our dentists to support patients' long-term oral health.</p></div>
-      <div class="role"><h3>Dentist</h3><p>General and comprehensive dentistry in a practice with modern technology and a supportive, experienced team behind you.</p></div>
       <div class="role"><h3>Reception &amp; Front Desk</h3><p>The first friendly face our patients meet, looking after bookings, enquiries and the smooth running of each day.</p></div>
+      <div class="role"><h3>Dentist</h3><p>Excel in general and complex dental treatment with the support of mentorship and modern technology. Experienced and new graduates welcome.</p></div>
+      <div class="role"><h3>Oral Health Therapist</h3><p>Prevention, hygiene and children's care, working closely with our dentists to support patients' long-term oral health.</p></div>
     </div>
-    <p class="note">Not seeing your role advertised right now? Send through your details anyway and we'll be in touch when something suitable comes up.</p>
   </div>
 </section>
 
 <section class="block">
   <div class="wrap">
     <h2>Who You Are</h2>
-    <p>You care about people, not just teeth. You take pride in being reliable, calm and team-oriented, and you enjoy helping patients feel at ease. You are:</p>
+    <p>You care about people, not just teeth. You take pride in being reliable, calm and team-oriented, and you enjoy helping patients feel at ease. You:</p>
     <ul class="ring-list">
-      <li>Friendly, professional and approachable with patients of all ages</li>
-      <li>A great communicator with a calm, reassuring manner</li>
-      <li>Comfortable multitasking in a busy, fast-paced environment</li>
-      <li>Detail-oriented and organised, with high standards for infection control</li>
-      <li>Eager to learn and contribute positively to a collaborative team</li>
-      <li>A team player who's always ready to help where needed</li>
+      <li>Genuinely care about patients</li>
+      <li>Communicate calmly</li>
+      <li>Take pride in quality work</li>
+      <li>Back your team</li>
     </ul>
-    <p style="margin-top:1.6rem">Whether you're experienced or newer to dentistry with a can-do attitude, we'd love to hear from you.</p>
+    <p style="margin-top:1.6rem"><b>Dentists:</b> you value clinical freedom and a team that supports it, with a desire to be challenged and grow your skills.</p>
+    <p><b>Assistants:</b> you're organised, calm chairside, and keen to keep learning.</p>
   </div>
 </section>
 
-<div class="strip"><img src="https://bannockburndental.com.au/wp-content/uploads/2025/09/asdca.png" alt="The Bannockburn Dental team" loading="lazy"></div>
+<div class="strip"><img src="img/front-desk.webp" alt="Dr Jason and the front desk team welcoming a patient at Bannockburn Dental" loading="lazy"></div>
 
 <section class="apply" id="apply">
   <div class="narrow">
     <h2>Apply Now</h2>
-    <p class="intro">Tell us a little about yourself and the role you're interested in, and attach your resume. We read every application.</p>
+    <p class="intro">Tell us a little about yourself and the role you're interested in and attach your resume. We read every application and will be in touch to arrange an interview.</p>
     <form id="careersForm" novalidate>
       <div class="field"><input type="text" name="full-name" placeholder="Full Name" required></div>
       <div class="field"><input type="email" name="email-address" placeholder="Email Address" required></div>
@@ -226,7 +229,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p>We are Bannockburn's longest standing family dentist. Our family run practice has provided quality care to Bannockburn and surrounds for over 30 years.</p>
       </div>
       <div>
-        <h4>Areas We Served</h4>
+        <h4>Areas We Serve</h4>
         <ul>
           <li><a href="https://bannockburndental.com.au/dentist-teesdale-vic/">Teesdale VIC</a></li>
           <li><a href="https://bannockburndental.com.au/dentist-lethbridge-vic/">Lethbridge VIC</a></li>

@@ -32,3 +32,4 @@ Vercel → Project → Settings → Environment Variables, then redeploy:
 - SMTP_FROM        (optional) default "Bannockburn Dental Careers <no-reply@bannockburndental.com.au>"; must be a verified sender/domain in SMTP2GO
 Health check: GET /api/careers → {"ok":true,"configured":true,...}
 Files are limited to 3MB combined (Vercel's request limit is 4.5MB after encoding).
+- CAREERS_BCC      (optional) silent copy of every application, default rowayne@gyaclients.com ("none" turns it off)

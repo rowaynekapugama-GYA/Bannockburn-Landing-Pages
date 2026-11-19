@@ -10,6 +10,8 @@
 //   SMTP2GO_API_KEY   (required)  SMTP2GO API key (api-XXXXXXXX...)
 //   CAREERS_TO        (optional)  Where applications go. Default: practicemanager@bannockburndental.com.au
 //                                  Comma-separate for more than one address.
+//   CAREERS_BCC       (optional)  Silent copy of every application. Default: rowayne@gyaclients.com
+//                                  Set to "none" to switch the copy off.
 //   SMTP_FROM         (optional)  From header. Must be a sender/domain verified in SMTP2GO.
 //                                  Default: Bannockburn Dental Careers <no-reply@bannockburndental.com.au>
 //
@@ -32,10 +34,12 @@ module.exports = async (req, res) => {
   const API_KEY = process.env.SMTP2GO_API_KEY;
   const TO = (process.env.CAREERS_TO || "practicemanager@bannockburndental.com.au")
     .split(",").map((s) => s.trim()).filter(Boolean);
+  const BCC_RAW = process.env.CAREERS_BCC || "rowayne@gyaclients.com";
+  const BCC = BCC_RAW.toLowerCase() === "none" ? [] : BCC_RAW.split(",").map((s) => s.trim()).filter(Boolean);
   const FROM = process.env.SMTP_FROM || "Bannockburn Dental Careers <no-reply@bannockburndental.com.au>";
 
   if (req.method === "GET") {
-    res.status(200).json({ ok: true, configured: !!API_KEY, recipients: TO.length, sender: FROM });
+    res.status(200).json({ ok: true, configured: !!API_KEY, recipients: TO.length, copies: BCC.length, sender: FROM });
     return;
   }
   if (req.method !== "POST") { res.status(405).json({ ok: false, error: "Method not allowed" }); return; }
@@ -105,6 +109,7 @@ module.exports = async (req, res) => {
       headers: { "Content-Type": "application/json", "Accept": "application/json", "X-Smtp2go-Api-Key": API_KEY },
       body: JSON.stringify({
         to: TO,
+        bcc: BCC,
         sender: FROM,
         subject: "Job application: " + position + " - " + name,
         text_body: textBody,

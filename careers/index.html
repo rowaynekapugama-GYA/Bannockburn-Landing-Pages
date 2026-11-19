@@ -302,13 +302,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         position:form.elements['position'].value,availability:form.elements['availability'].value,message:form.elements['message'].value,
         company:form.elements['company'].value,files:files})});
       var out=await r.json().catch(function(){return {};});
-      if(!r.ok||!out.ok)throw new Error(out.detail||out.error||('HTTP '+r.status));
+      if(!r.ok||!out.ok){
+        var why=r.status===404?'form service not found (404)':r.status===413?'files too large (413)':
+          (out.error||('HTTP '+r.status))+(out.missing?': missing '+out.missing.join(', '):'')+(out.detail?': '+out.detail:'');
+        throw new Error(why);
+      }
       window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'careers_application',position:form.elements['position'].value});
       form.reset();
       show('Thanks for applying! Your application has been sent to our team and we\'ll be in touch soon.');
     }catch(err){
       console.error('Careers form error:',err);
       show('Sorry, something went wrong sending your application. Please try again, or email your resume to practicemanager@bannockburndental.com.au.',true);
+      var d=document.createElement('small');d.style.cssText='display:block;margin-top:.5rem;color:#999;font-size:.75rem';d.textContent='Error: '+(err&&err.message?err.message:err);note.appendChild(d);
     }finally{btn.disabled=false;btn.textContent=label;}
   });
 })();

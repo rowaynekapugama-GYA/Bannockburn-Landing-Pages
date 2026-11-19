@@ -87,6 +87,8 @@ form{display:grid;gap:.75rem}
 .field label{display:block;font-size:.95rem;font-weight:300;color:var(--text);margin:.3rem 0 .35rem}
 .field input[type=file]{padding:.85rem 1.2rem}
 form .btn{justify-self:start;margin-top:.4rem}
+.form-note.err{border-left-color:#C0392B;background:#FDF1F0}
+.field.invalid input,.field.invalid select{border-color:#C0392B}
 .form-note{display:none;margin-top:1rem;padding:1rem 1.2rem;border-left:3px solid var(--peach);background:#FFF6EF;color:var(--ink);font-size:.92rem}
 
 /* footer (mirrors the main site) */
@@ -207,6 +209,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <h2>Apply Now</h2>
     <p class="intro">Tell us a little about yourself and the role you're interested in, and attach your resume. We read every application and will be in touch to arrange an interview.</p>
     <form id="careersForm" novalidate>
+      <div style="position:absolute;left:-9999px" aria-hidden="true"><input type="text" name="company" tabindex="-1" autocomplete="off"></div>
       <div class="field"><input type="text" name="full-name" placeholder="Full Name" required></div>
       <div class="field"><input type="email" name="email-address" placeholder="Email Address" required></div>
       <div class="field"><input type="tel" name="phone-number" placeholder="Phone Number" required></div>
@@ -221,11 +224,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </select>
       </div>
       <div class="field"><input type="text" name="availability" placeholder="Availability / Preferred Work Type"></div>
-      <div class="field"><label>Upload your resume (PDF, DOC, DOCX | Max 5MB) (Required)</label><input type="file" name="resume" accept=".pdf,.doc,.docx" required></div>
-      <div class="field"><label>Additional Certifications / Portfolio (Optional)</label><input type="file" name="portfolio"></div>
+      <div class="field"><label>Upload your resume (PDF, DOC, DOCX | Max 3MB) (Required)</label><input type="file" name="resume" accept=".pdf,.doc,.docx" required></div>
+      <div class="field"><label>Additional Certifications / Portfolio (Optional, PDF or image)</label><input type="file" name="portfolio" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.heic,.webp"></div>
       <div class="field"><textarea name="message" placeholder="Anything else you'd like us to know? (Optional)"></textarea></div>
       <button class="btn" type="submit">Submit application</button>
-      <div class="form-note" id="formNote">This is a preview of the new Careers page. The live version on bannockburndental.com.au will use the practice's existing application form, so submissions go straight to the team.</div>
+      <div class="form-note" id="formNote" role="status" aria-live="polite"></div>
     </form>
   </div>
 </section>
@@ -274,10 +277,41 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </footer>
 
 <script>
-document.getElementById('careersForm').addEventListener('submit',function(e){
-  e.preventDefault();
-  document.getElementById('formNote').style.display='block';
-});
+(function(){
+  var form=document.getElementById('careersForm'), note=document.getElementById('formNote');
+  var btn=form.querySelector('button[type=submit]'), MAX=3*1024*1024;
+  function show(msg,err){note.textContent=msg;note.className='form-note'+(err?' err':'');note.style.display='block';}
+  function readB64(file){return new Promise(function(ok,fail){var r=new FileReader();r.onload=function(){ok(String(r.result).split(',')[1]||'');};r.onerror=fail;r.readAsDataURL(file);});}
+  form.addEventListener('submit',async function(e){
+    e.preventDefault();
+    form.querySelectorAll('.field.invalid').forEach(function(f){f.classList.remove('invalid');});
+    var bad=[];
+    ['full-name','email-address','phone-number','position','resume'].forEach(function(n){
+      var el=form.elements[n]; if(!el.checkValidity()||(n==='resume'&&!el.files.length)){bad.push(el);el.closest('.field').classList.add('invalid');}
+    });
+    if(bad.length){show('Please fill in the highlighted fields and attach your resume.',true);bad[0].focus();return;}
+    var resume=form.elements['resume'].files[0], port=form.elements['portfolio'].files[0];
+    var size=resume.size+(port?port.size:0);
+    if(size>MAX){show('Your files add up to '+(size/1048576).toFixed(1)+'MB. Please keep the resume and portfolio under 3MB combined, or email larger files to practicemanager@bannockburndental.com.au.',true);return;}
+    btn.disabled=true;var label=btn.textContent;btn.textContent='Sending...';note.style.display='none';
+    try{
+      var files=[{field:'resume',filename:resume.name,data:await readB64(resume)}];
+      if(port)files.push({field:'portfolio',filename:port.name,data:await readB64(port)});
+      var r=await fetch('/api/careers',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({
+        name:form.elements['full-name'].value,email:form.elements['email-address'].value,phone:form.elements['phone-number'].value,
+        position:form.elements['position'].value,availability:form.elements['availability'].value,message:form.elements['message'].value,
+        company:form.elements['company'].value,files:files})});
+      var out=await r.json().catch(function(){return {};});
+      if(!r.ok||!out.ok)throw new Error(out.detail||out.error||('HTTP '+r.status));
+      window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'careers_application',position:form.elements['position'].value});
+      form.reset();
+      show('Thanks for applying! Your application has been sent to our team and we\'ll be in touch soon.');
+    }catch(err){
+      console.error('Careers form error:',err);
+      show('Sorry, something went wrong sending your application. Please try again, or email your resume to practicemanager@bannockburndental.com.au.',true);
+    }finally{btn.disabled=false;btn.textContent=label;}
+  });
+})();
 </script>
 </body>
 </html>

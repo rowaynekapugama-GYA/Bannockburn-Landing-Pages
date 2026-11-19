@@ -23,3 +23,12 @@ All slider and team photos are now served from the practice's own WordPress libr
 
 
 All pages are `noindex` while in review — remove the robots meta before indexing.
+
+## Careers form (/careers/ → /api/careers)
+Applications (with resume + optional portfolio attached) are emailed via SMTP2GO.
+Vercel → Project → Settings → Environment Variables, then redeploy:
+- SMTP2GO_API_KEY  (required) the practice's SMTP2GO API key
+- CAREERS_TO       (optional) default practicemanager@bannockburndental.com.au (comma-separate for several)
+- SMTP_FROM        (optional) default "Bannockburn Dental Careers <no-reply@bannockburndental.com.au>"; must be a verified sender/domain in SMTP2GO
+Health check: GET /api/careers → {"ok":true,"configured":true,...}
+Files are limited to 3MB combined (Vercel's request limit is 4.5MB after encoding).
